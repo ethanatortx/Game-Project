@@ -7,14 +7,27 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_door</sprite>
-    <sprite>sprites\spr_main1_idle</sprite>
-    <sprite>sprites\spr_main2_idle</sprite>
-    <sprite>sprites\spr_main3_idle</sprite>
-    <sprite>sprites\spr_main4_idle</sprite>
+    <sprite>sprites\spr_main_up</sprite>
+    <sprite>sprites\spr_main_down</sprite>
+    <sprite>sprites\spr_main_left</sprite>
+    <sprite>sprites\spr_main_right</sprite>
     <sprite>sprites\spr_sword_first</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="player movement">
+      <script>scripts\scr_directional_input.gml</script>
+      <script>scripts\scr_move_arr.gml</script>
+    </scripts>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_player_main</object>
+    <object>objects\obj_quitgame</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_testing</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
