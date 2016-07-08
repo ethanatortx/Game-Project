@@ -21,6 +21,7 @@
       <script>scripts\scr_move_arr.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts"/>
   <objects name="objects">
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
