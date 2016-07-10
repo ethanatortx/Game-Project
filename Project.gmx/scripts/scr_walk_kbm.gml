@@ -4,11 +4,11 @@
 var mov_input = ((keyboard_check(vk_left)<<3) | (keyboard_check(vk_right)<<2) | (keyboard_check(vk_up)<<1) | keyboard_check(vk_down));
 
 // change speed to make an illusion of 3 speed at 60 fps
-if (global.player_speed == 1) {
+/*if (global.player_speed == 1) {
     global.player_speed = 2;
 } else if (global.player_speed == 2) {
     global.player_speed = 1;
-}
+}*/
 
 // sets speed for movement in specified direction
 var spd_arr = scr_move_arr(mov_input, global.player_speed);
@@ -23,10 +23,10 @@ image_speed = 0;
 if (phy_position_y != phy_position_yprevious) {
     if (phy_position_y > phy_position_yprevious) {
         sprite_index = spr_main_down; // show moving down
-        image_speed = .15;
+        image_speed = .2;
     } else if (phy_position_y < phy_position_yprevious) {
         sprite_index = spr_main_up; // show moving upwards
-        image_speed = .15;
+        image_speed = .2;
     }
 }
 
@@ -39,14 +39,17 @@ if (phy_position_y != phy_position_yprevious) {
 if (phy_position_x != phy_position_xprevious) {
     if (phy_position_x > phy_position_xprevious) {
         sprite_index = spr_main_right; // show moving right
-        image_speed = .15;
+        image_speed = .2;
     } else if (phy_position_x < phy_position_xprevious) {
         sprite_index = spr_main_left; // show moving left
-        image_speed = .15;
+        image_speed = .2;
     }
 }
 
 if (mov_input == 0000 || mov_input == 1111) {
-    image_index = 0;
+    var spr_name = sprite_get_name(sprite_index);
+    if (string_count("left",spr_name) == 8) {
+        
+    }
 }
 
