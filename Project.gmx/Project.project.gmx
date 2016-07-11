@@ -8,13 +8,13 @@
   <sprites name="sprites">
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_main_up</sprite>
-    <sprite>sprites\spr_main_up_run</sprite>
+    <sprite>sprites\spr_main_up_still</sprite>
     <sprite>sprites\spr_main_down</sprite>
-    <sprite>sprites\spr_main_down_run</sprite>
+    <sprite>sprites\spr_main_down_still</sprite>
     <sprite>sprites\spr_main_left</sprite>
     <sprite>sprites\spr_main_left_still</sprite>
     <sprite>sprites\spr_main_right</sprite>
-    <sprite>sprites\spr_main_right_run</sprite>
+    <sprite>sprites\spr_main_right_still</sprite>
     <sprite>sprites\spr_sword_first</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -23,7 +23,6 @@
     <scripts name="player movement">
       <script>scripts\scr_walk_kbm.gml</script>
       <script>scripts\scr_move_arr.gml</script>
-      <script>scripts\scr_run_kbm.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

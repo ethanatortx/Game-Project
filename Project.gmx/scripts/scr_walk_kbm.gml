@@ -24,9 +24,11 @@ if (phy_position_y != phy_position_yprevious) {
     if (phy_position_y > phy_position_yprevious) {
         sprite_index = spr_main_down; // show moving down
         image_speed = .2;
+        main_dir = "down";
     } else if (phy_position_y < phy_position_yprevious) {
         sprite_index = spr_main_up; // show moving upwards
         image_speed = .2;
+        main_dir = "up";
     }
 }
 
@@ -40,16 +42,17 @@ if (phy_position_x != phy_position_xprevious) {
     if (phy_position_x > phy_position_xprevious) {
         sprite_index = spr_main_right; // show moving right
         image_speed = .2;
+        main_dir = "right";
     } else if (phy_position_x < phy_position_xprevious) {
         sprite_index = spr_main_left; // show moving left
         image_speed = .2;
+        main_dir = "left";
     }
 }
 
-if (mov_input == 0000 || mov_input == 1111) {
-    var spr_name = sprite_get_name(sprite_index);
-    if (string_count("left",spr_name) == 8) {
-        
-    }
+if (phy_position_y == phy_position_yprevious && phy_position_x == phy_position_xprevious) {
+    spr_name = sprite_get_name(sprite_index);
+    // set the sprite index to the still frame of the current facing direction
+    sprite_index = asset_get_index("spr_main_" + main_dir + "_still");
 }
 
