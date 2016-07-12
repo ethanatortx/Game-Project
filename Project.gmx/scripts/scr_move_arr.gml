@@ -62,11 +62,11 @@ arr[12,1] = vspeed;
 
 //Left + Right + Down
 arr[13,0] = hspeed;
-arr[13,1] = vspeed;
+arr[13,1] = argument1;
 
 //Left + Right + Up
 arr[14,0] = hspeed;
-arr[14,1] = vspeed;
+arr[14,1] = -argument0;
 
 //Left + Right + Up + Down
 arr[15,0] = hspeed;
