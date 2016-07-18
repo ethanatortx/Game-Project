@@ -20,6 +20,7 @@
     <sprite>sprites\spr_main_right_walking</sprite>
     <sprite>sprites\spr_main_right_still</sprite>
     <sprite>sprites\spr_sword_first</sprite>
+    <sprite>sprites\spr_main_shadow</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
