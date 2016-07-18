@@ -126,14 +126,11 @@ instance_create(0,0,obj_quitgame);
             <kind>1</kind>
             <string>/// debug
 draw_set_colour(c_black);
-for (debug1 = 0; debug1 &lt; array_length_1d(gp); debug1 ++) {
-    draw_text(0, 10*debug1, gp[debug1]);
-}
-draw_text(0,40,gamepad_get_button_threshold(0));
-draw_text(0,50,gamepad_axis_value(0, gp_axislv));
-draw_text(0,60,gamepad_axis_value(0, gp_axislh));
-draw_text(0,70,hspd);
-draw_text(0,80,vspd);
+draw_text(0,0,gamepad_get_button_threshold(0));
+draw_text(0,10,gamepad_axis_value(0, gp_axislv));
+draw_text(0,20,gamepad_axis_value(0, gp_axislh));
+draw_text(0,30,hspd);
+draw_text(0,40,vspd);
 </string>
           </argument>
         </arguments>

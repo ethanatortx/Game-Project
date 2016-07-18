@@ -3,7 +3,7 @@
 
 // input
 var pad_num = gamepad_get_device_count();
-//var gp = undefined;
+var gp = undefined;
 
 for (i = 0; i < pad_num; i ++) {
     gp[i] = gamepad_is_connected(i); // get array of devices and whether or not they are gamepad inputs
