@@ -25,8 +25,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="player movement">
-      <script>scripts\scr_walk_kbm.gml</script>
-      <script>scripts\scr_move_arr.gml</script>
       <script>scripts\scr_move.gml</script>
     </scripts>
   </scripts>
