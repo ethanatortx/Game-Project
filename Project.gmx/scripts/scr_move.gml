@@ -52,8 +52,22 @@ if (gpinput) {
 
 // speed determination
 if ((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) { // check if player stick movement is in walking zone (radius < .6)
-    vspd = ceil(vaxis);
-    hspd = ceil(haxis);
+    if (vaxis < 0) {
+        var vspd = -1;
+    } else if (vaxis > 0) {
+        var vspd = 1;
+    } else {
+        var vspd = 0;
+    }
+    
+    if (haxis < 0) {
+        var hspd = -1;
+    } else if (haxis > 0) {
+        var hspd = 1;
+    } else {
+        var hspd = 0;
+    }
+
     if (vaxis < 0.6 and vaxis > 0) {
         sprite_index = spr_main_down_walking;
         spr_resting = spr_main_down_still;

@@ -3,7 +3,7 @@
   <spriteName>spr_main_down_still</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,6 +29,7 @@
 global.player_speed = 2;
 image_speed = 0;
 spr_resting = spr_main_down_still;
+phy_fixed_rotation = true;
 </string>
           </argument>
         </arguments>
@@ -78,6 +79,7 @@ vaxis = 0;
             <kind>1</kind>
             <string>/// movement
 scr_move(0);
+depth = -y;
 </string>
           </argument>
         </arguments>
@@ -197,9 +199,9 @@ draw_sprite(spr_main_shadow,0,x,y+2);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>2,6</point>
-    <point>8,6</point>
-    <point>8,28</point>
-    <point>2,28</point>
+    <point>2,20</point>
+    <point>11,20</point>
+    <point>11,31</point>
+    <point>2,31</point>
   </PhysicsShapePoints>
 </object>

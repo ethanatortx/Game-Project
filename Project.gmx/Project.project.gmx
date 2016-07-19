@@ -21,9 +21,12 @@
     <sprite>sprites\spr_main_right_still</sprite>
     <sprite>sprites\spr_sword_first</sprite>
     <sprite>sprites\spr_main_shadow</sprite>
+    <sprite>sprites\spr_bars_hole</sprite>
+    <sprite>sprites\spr_bars_left</sprite>
+    <sprite>sprites\spr_bars_right</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_grass</background>
+    <background>background\bg_concrete</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -34,8 +37,12 @@
   <objects name="objects">
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
+    <object>objects\obj_bars_hole</object>
+    <object>objects\obj_bars_right</object>
+    <object>objects\obj_bars_left</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_bunker</room>
     <room>rooms\rm_testing</room>
   </rooms>
   <help>
