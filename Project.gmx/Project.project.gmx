@@ -22,7 +22,9 @@
     <sprite>sprites\spr_sword_first</sprite>
     <sprite>sprites\spr_main_shadow</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_grass</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="player movement">
