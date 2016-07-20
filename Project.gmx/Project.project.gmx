@@ -24,6 +24,7 @@
     <sprite>sprites\spr_bars_hole</sprite>
     <sprite>sprites\spr_bars_left</sprite>
     <sprite>sprites\spr_bars_right</sprite>
+    <sprite>sprites\spr_getting_up</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -35,15 +36,19 @@
     </scripts>
   </scripts>
   <objects name="objects">
+    <objects name="particle emitters/coordinators">
+      <object>objects\part_snow</object>
+    </objects>
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
     <object>objects\obj_bars_hole</object>
     <object>objects\obj_bars_right</object>
     <object>objects\obj_bars_left</object>
+    <object>objects\obj_test_misc</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_bunker</room>
     <room>rooms\rm_testing</room>
+    <room>rooms\rm_bunker</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
