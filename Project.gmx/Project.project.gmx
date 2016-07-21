@@ -6,25 +6,26 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_door</sprite>
-    <sprite>sprites\spr_main_up</sprite>
-    <sprite>sprites\spr_main_up_walking</sprite>
-    <sprite>sprites\spr_main_up_still</sprite>
-    <sprite>sprites\spr_main_down</sprite>
-    <sprite>sprites\spr_main_down_walking</sprite>
-    <sprite>sprites\spr_main_down_still</sprite>
-    <sprite>sprites\spr_main_left</sprite>
-    <sprite>sprites\spr_main_left_walking</sprite>
-    <sprite>sprites\spr_main_left_still</sprite>
-    <sprite>sprites\spr_main_right</sprite>
-    <sprite>sprites\spr_main_right_walking</sprite>
-    <sprite>sprites\spr_main_right_still</sprite>
-    <sprite>sprites\spr_sword_first</sprite>
-    <sprite>sprites\spr_main_shadow</sprite>
-    <sprite>sprites\spr_bars_hole</sprite>
-    <sprite>sprites\spr_bars_left</sprite>
-    <sprite>sprites\spr_bars_right</sprite>
-    <sprite>sprites\spr_getting_up</sprite>
+    <sprites name="main character">
+      <sprite>sprites\spr_main_shadow</sprite>
+      <sprite>sprites\spr_main_up</sprite>
+      <sprite>sprites\spr_main_up_still</sprite>
+      <sprite>sprites\spr_main_up_walking</sprite>
+      <sprite>sprites\spr_main_down</sprite>
+      <sprite>sprites\spr_main_down_still</sprite>
+      <sprite>sprites\spr_main_down_walking</sprite>
+      <sprite>sprites\spr_main_left</sprite>
+      <sprite>sprites\spr_main_left_still</sprite>
+      <sprite>sprites\spr_main_left_walking</sprite>
+      <sprite>sprites\spr_main_right</sprite>
+      <sprite>sprites\spr_main_right_still</sprite>
+      <sprite>sprites\spr_main_right_walking</sprite>
+      <sprite>sprites\spr_getting_up</sprite>
+      <sprite>sprites\spr_lying_down</sprite>
+      <sprites name="weapons">
+        <sprite>sprites\spr_sword_first</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -41,14 +42,12 @@
     </objects>
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
-    <object>objects\obj_bars_hole</object>
-    <object>objects\obj_bars_right</object>
-    <object>objects\obj_bars_left</object>
     <object>objects\obj_test_misc</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
     <room>rooms\rm_bunker</room>
+    <room>rooms\rm_blizzard</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
