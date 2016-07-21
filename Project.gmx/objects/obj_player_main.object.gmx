@@ -27,34 +27,10 @@
             <kind>1</kind>
             <string>/// initialize values
 global.player_speed = 2;
+global.player_state = 'getting up'
 image_speed = 0;
-spr_resting = spr_main_down_still;
+spr_resting = spr_main_up_still;
 phy_fixed_rotation = true;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// debug vars
-hspd = 0;
-vspd = 0;
-haxis = 0;
-vaxis = 0;
 </string>
           </argument>
         </arguments>
@@ -78,8 +54,58 @@ vaxis = 0;
           <argument>
             <kind>1</kind>
             <string>/// movement
-scr_move(0);
-depth = -y;
+
+// only allow walking if specified
+if (global.player_state = 'walk') {
+    scr_move(0);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// getting up
+
+if (global.player_state = 'getting up') {
+    scr_player_getup(0.05);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// misc code
+depth = -y; // makes its depth be lower than that of the ones infront of it
 </string>
           </argument>
         </arguments>
@@ -104,35 +130,6 @@ depth = -y;
             <kind>1</kind>
             <string>/// create game quit object &lt;TESTING ONLY&gt;
 instance_create(0,0,obj_quitgame);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="75">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// debug
-draw_set_colour(c_black);
-draw_text(0,0,gamepad_get_button_threshold(0));
-draw_text(0,10,gamepad_axis_value(0, gp_axislv));
-draw_text(0,20,gamepad_axis_value(0, gp_axislh));
-draw_text(0,30,hspd);
-draw_text(0,40,vspd);
 </string>
           </argument>
         </arguments>
