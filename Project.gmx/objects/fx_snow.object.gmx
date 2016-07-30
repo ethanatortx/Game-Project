@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// snow particle type
-global.snow_sys = part_system_create();
+            <string>///
 </string>
           </argument>
         </arguments>

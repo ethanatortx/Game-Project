@@ -33,15 +33,14 @@
   <scripts name="scripts">
     <scripts name="player movement">
       <script>scripts\scr_move.gml</script>
+      <script>scripts\scr_player_getup.gml</script>
     </scripts>
-    <script>scripts\scr_player_getup.gml</script>
+    <script>scripts\script2.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
-    <objects name="particle emitters/coordinators">
-      <object>objects\part_snow</object>
-    </objects>
+    <object>objects\fx_snow</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tml_scripted_movement</timeline>
