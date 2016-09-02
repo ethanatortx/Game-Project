@@ -48,6 +48,7 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
+    <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_bunker</room>
     <room>rooms\rm_blizzard</room>
   </rooms>

@@ -22,6 +22,7 @@ if (gpinput) {
     var haxis = gamepad_axis_value(argument0, gp_axislh);
 } else if (!gpinput) {
     // keyboard axis assignment
+    var walk_bool = keyboard_check(vk_shift);
     var rkey = keyboard_check(vk_right);
     var lkey = keyboard_check(vk_left);
     var ukey = keyboard_check(vk_up);
@@ -51,7 +52,7 @@ if (gpinput) {
 }
 
 // speed determination
-if ((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) { // check if player stick movement is in walking zone (radius < .6)
+if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) || walk_bool) { // check if player stick movement is in walking zone (radius < .6)
     if (vaxis < 0) {
         var vspd = -1;
     } else if (vaxis > 0) {
