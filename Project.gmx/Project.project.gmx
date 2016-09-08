@@ -25,6 +25,9 @@
         <sprite>sprites\spr_sword_first</sprite>
       </sprites>
     </sprites>
+    <sprites name="enemies">
+      <sprite>sprites\he_just_wants_a_hug</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -42,6 +45,7 @@
     <object>objects\obj_player_main</object>
     <object>objects\obj_quitgame</object>
     <object>objects\fx_snow</object>
+    <object>objects\obj_niceguy</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tml_scripted_movement</timeline>
