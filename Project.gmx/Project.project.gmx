@@ -26,7 +26,7 @@
       </sprites>
     </sprites>
     <sprites name="enemies">
-      <sprite>sprites\he_just_wants_a_hug</sprite>
+      <sprite>sprites\spr_he_just_wants_a_hug</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -42,9 +42,18 @@
     <script>scripts\script2.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_player_main</object>
-    <object>objects\obj_quitgame</object>
-    <object>objects\fx_snow</object>
+    <objects name="player">
+      <object>objects\obj_player_main</object>
+      <objects name="damage">
+        <object>objects\obj_pdmg_melee</object>
+        <object>objects\obj_pdmg_projectile</object>
+        <object>objects\bl_hitscan_projectile</object>
+      </objects>
+    </objects>
+    <objects name="mechanics">
+      <object>objects\obj_quitgame</object>
+      <object>objects\fx_snow</object>
+    </objects>
     <object>objects\obj_niceguy</object>
   </objects>
   <timelines name="timelines">
