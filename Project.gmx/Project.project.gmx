@@ -7,6 +7,9 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="main character">
+      <sprites name="weapons">
+        <sprite>sprites\spr_sword</sprite>
+      </sprites>
       <sprite>sprites\spr_main_shadow</sprite>
       <sprite>sprites\spr_main_up</sprite>
       <sprite>sprites\spr_main_up_still</sprite>
@@ -21,9 +24,6 @@
       <sprite>sprites\spr_main_right_still</sprite>
       <sprite>sprites\spr_main_right_walking</sprite>
       <sprite>sprites\spr_getting_up</sprite>
-      <sprites name="weapons">
-        <sprite>sprites\spr_sword_first</sprite>
-      </sprites>
     </sprites>
     <sprites name="enemies">
       <sprite>sprites\spr_he_just_wants_a_hug</sprite>
@@ -56,9 +56,7 @@
     </objects>
     <object>objects\obj_niceguy</object>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\tml_scripted_movement</timeline>
-  </timelines>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
