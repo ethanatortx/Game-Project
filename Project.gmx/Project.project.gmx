@@ -25,8 +25,8 @@
       <sprite>sprites\spr_main_right_walking</sprite>
       <sprite>sprites\spr_getting_up</sprite>
     </sprites>
-    <sprites name="enemies">
-      <sprite>sprites\spr_he_just_wants_a_hug</sprite>
+    <sprites name="objects">
+      <sprite>sprites\spr_campfire</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -54,9 +54,7 @@
       <object>objects\obj_quitgame</object>
       <object>objects\fx_snow</object>
     </objects>
-    <object>objects\obj_niceguy</object>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
