@@ -54,12 +54,12 @@
       <object>objects\obj_quitgame</object>
       <object>objects\fx_snow</object>
     </objects>
+    <object>objects\obj_campfire</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_testing_environments</room>
     <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
-    <room>rooms\rm_bunker</room>
-    <room>rooms\rm_blizzard</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

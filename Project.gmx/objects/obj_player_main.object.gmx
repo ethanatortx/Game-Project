@@ -30,6 +30,7 @@ global.player_speed = 2;
 global.player_state = 'getting up'
 image_speed = 0;
 spr_resting = spr_main_up_still;
+
 phy_fixed_rotation = true;
 </string>
           </argument>
@@ -184,7 +185,7 @@ draw_sprite(spr_main_shadow,0,x,y+2);
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
@@ -195,5 +196,10 @@ draw_sprite(spr_main_shadow,0,x,y+2);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>0,-1</point>
+    <point>12,-1</point>
+    <point>12,31</point>
+    <point>0,31</point>
+  </PhysicsShapePoints>
 </object>
