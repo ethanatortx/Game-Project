@@ -88,25 +88,25 @@ if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) || walk_b
         image_speed = .175;
     }
 } else { // do running animation when stick movement is past walking zone (radius >= 0.6)
-    vspd = round(2*vaxis);
-    hspd = round(2*haxis);
+    vspd = round(global.player_speed*vaxis);
+    hspd = round(global.player_speed*haxis);
     if (vaxis > 0.6) {
         sprite_index = spr_main_down;
         spr_resting = spr_main_down_still;
-        image_speed = .2;
+        image_speed = .3;
     } else if (vaxis < -0.6) {
         sprite_index = spr_main_up;
         spr_resting = spr_main_up_still;
-        image_speed = .2;
+        image_speed = .3;
     }
     if (haxis > 0.6) {
         sprite_index = spr_main_right;
         spr_resting = spr_main_right_still;
-        image_speed = .2;
+        image_speed = .3;
     } else if (haxis < -0.6) {
         sprite_index = spr_main_left;
         spr_resting = spr_main_left_still;
-        image_speed = .2;
+        image_speed = .3;
     }
 }
 
