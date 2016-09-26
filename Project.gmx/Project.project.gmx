@@ -8,7 +8,7 @@
   <sprites name="sprites">
     <sprites name="main character">
       <sprites name="weapons">
-        <sprite>sprites\spr_sword</sprite>
+        <sprite>sprites\spr_Bansword</sprite>
       </sprites>
       <sprite>sprites\spr_main_shadow</sprite>
       <sprite>sprites\spr_main_up</sprite>
@@ -57,6 +57,7 @@
       <object>objects\fx_smoke</object>
     </objects>
     <object>objects\obj_campfire</object>
+    <object>objects\obj_sword</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
