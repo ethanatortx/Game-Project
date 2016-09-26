@@ -54,6 +54,7 @@
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
       <object>objects\fx_snow</object>
+      <object>objects\fx_smoke</object>
     </objects>
     <object>objects\obj_campfire</object>
   </objects>

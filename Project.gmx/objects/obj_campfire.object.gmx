@@ -28,6 +28,7 @@
             <string>/// initialize
 
 image_speed = .15;
+instance_create(x,y,fx_smoke);
 </string>
           </argument>
         </arguments>
