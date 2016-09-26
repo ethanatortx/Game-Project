@@ -28,6 +28,7 @@
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
     </sprites>
+    <sprite>sprites\spr_test</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -57,6 +58,7 @@
       <object>objects\fx_smoke</object>
     </objects>
     <object>objects\obj_campfire</object>
+    <object>objects\obj_depthtest</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>

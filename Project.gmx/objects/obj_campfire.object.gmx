@@ -35,7 +35,7 @@ depth = -y;
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="75">
+    <event eventtype="4" ename="obj_player_main">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,19 +52,17 @@ depth = -y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// debug
-
-draw_text(0,10,depth);
+            <string>///player collision
 </string>
           </argument>
         </arguments>
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
-  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectShape>2</PhysicsObjectShape>
+  <PhysicsObjectDensity>0</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
@@ -72,5 +70,10 @@ draw_text(0,10,depth);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>6,22</point>
+    <point>10,16</point>
+    <point>24,16</point>
+    <point>26,22</point>
+  </PhysicsShapePoints>
 </object>
