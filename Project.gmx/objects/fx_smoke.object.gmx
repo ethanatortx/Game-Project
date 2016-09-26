@@ -28,7 +28,7 @@
             <string>/// particle system
 smoke_system = part_system_create();
 part_system_position(smoke_system,x,y);
-part_system_depth(smoke_system,depth+1);
+part_system_depth(smoke_system,-y+1);
 </string>
           </argument>
         </arguments>
@@ -78,7 +78,7 @@ part_type_speed(smoke1,.1,1,0,.2);
 part_type_scale(smoke1,1,1);
 part_type_size(smoke1,.5,.5,0,0);
 part_type_direction(smoke1,80,100,0,5);
-part_type_colour_hsv(smoke1,0,0,0,0,45,55);
+part_type_colour_hsv(smoke1,160,160,0,0,88,88);
 part_type_alpha3(smoke1,1,1,0);
 part_type_life(smoke1,60,60);
 </string>
