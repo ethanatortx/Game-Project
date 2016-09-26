@@ -20,6 +20,7 @@ if (gpinput) {
     gamepad_set_axis_deadzone(0,0.2)
     var vaxis = gamepad_axis_value(argument0, gp_axislv);
     var haxis = gamepad_axis_value(argument0, gp_axislh);
+    var walk_bool = false;
 } else if (!gpinput) {
     // keyboard axis assignment
     var walk_bool = keyboard_check(vk_shift);

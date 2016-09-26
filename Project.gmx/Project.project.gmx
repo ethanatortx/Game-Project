@@ -32,7 +32,7 @@
   <backgrounds name="background">
     <background>background\bg_concrete</background>
     <background>background\bg_snow</background>
-    <background>background\bg_wood</background>
+    <background>background\bg_dirt</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
