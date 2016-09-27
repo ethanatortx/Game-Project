@@ -58,14 +58,16 @@ var rkey = keyboard_check(vk_right);
 var lkey = keyboard_check(vk_left);
 var ukey = keyboard_check(vk_up);
 var dkey = keyboard_check(vk_down);
+var image = 0;
+image_index = image;
 
-image_index = 0;
 
 if(rkey)
 {
     image_index = 0;
     x = obj_player_main.phy_position_x + 2;
     y = obj_player_main.phy_position_y - 15;
+
 }  
 
 if(lkey)
@@ -73,6 +75,7 @@ if(lkey)
     image_index = 1;
     x = obj_player_main.x - 2;
     y = obj_player_main.phy_position_y + 15;
+
 }
 
 // Changes to the vertical components of the swords
@@ -83,15 +86,25 @@ if(lkey)
 if(ukey) 
 {
     y = obj_player_main.phy_position_y - 15;
-    image_index = 2;
-    
+    x = obj_player_main.phy_position_x - 6
+    image_index = 2
 }
 
 if(dkey)
 {
     image_index = 3;
-    y = obj_player_main.phy_position_y + 15;
+    y = obj_player_main.phy_position_y + 5;
+    x = obj_player_main.phy_position_x - 6;
+    depth = 1;
+    
+
 }
+
+
+    
+
+
+    
 </string>
           </argument>
         </arguments>
