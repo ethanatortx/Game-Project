@@ -111,6 +111,49 @@ depth = -y; // makes its depth be lower than that of the ones infront of it
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///STATE MACHINE
+//Varivalbes
+global.facing = 0;
+//Default State
+
+//Indicates which sprite is being used(Idenfitying the character look direction)
+if(sprite_index == spr_main_down_walking)
+{
+    facing = 4;
+}
+if(sprite_index == spr_main_up_walking)
+{
+    facing = 3;
+}
+if(sprite_index == spr_main_right_walking)
+{
+    facing = 1;
+}
+if(sprite_index == spr_main_left_walking)
+{
+    facing = 2;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="2">
       <action>

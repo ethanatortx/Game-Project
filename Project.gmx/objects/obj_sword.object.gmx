@@ -58,16 +58,18 @@ var rkey = keyboard_check(vk_right);
 var lkey = keyboard_check(vk_left);
 var ukey = keyboard_check(vk_up);
 var dkey = keyboard_check(vk_down);
-var image = 0;
-image_index = image;
 
+if(global.facing != 0){
+    image_index = global.facing - 1;
+} else {
+    x = 0;
+    y = 0;
+}
 
 if(rkey)
 {
-    image_index = 0;
     x = obj_player_main.phy_position_x + 2;
-    y = obj_player_main.phy_position_y - 15;
-
+    y = obj_player_main.phy_position_y - 15;  
 }  
 
 if(lkey)
@@ -75,6 +77,7 @@ if(lkey)
     image_index = 1;
     x = obj_player_main.x - 2;
     y = obj_player_main.phy_position_y + 15;
+    faving = 1;
 
 }
 
@@ -87,7 +90,9 @@ if(ukey)
 {
     y = obj_player_main.phy_position_y - 15;
     x = obj_player_main.phy_position_x - 6
-    image_index = 2
+    image_index = 2;
+    facing = 2;
+
 }
 
 if(dkey)
@@ -96,15 +101,8 @@ if(dkey)
     y = obj_player_main.phy_position_y + 5;
     x = obj_player_main.phy_position_x - 6;
     depth = 1;
-    
-
+    facing = 3;
 }
-
-
-    
-
-
-    
 </string>
           </argument>
         </arguments>
