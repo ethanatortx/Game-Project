@@ -10,20 +10,26 @@
       <sprites name="weapons">
         <sprite>sprites\spr_Bansword</sprite>
       </sprites>
-      <sprite>sprites\spr_main_shadow</sprite>
-      <sprite>sprites\spr_main_up</sprite>
-      <sprite>sprites\spr_main_up_still</sprite>
-      <sprite>sprites\spr_main_up_walking</sprite>
-      <sprite>sprites\spr_main_down</sprite>
-      <sprite>sprites\spr_main_down_still</sprite>
-      <sprite>sprites\spr_main_down_walking</sprite>
-      <sprite>sprites\spr_main_left</sprite>
-      <sprite>sprites\spr_main_left_still</sprite>
-      <sprite>sprites\spr_main_left_walking</sprite>
-      <sprite>sprites\spr_main_right</sprite>
-      <sprite>sprites\spr_main_right_still</sprite>
-      <sprite>sprites\spr_main_right_walking</sprite>
+      <sprites name="Main Sprite Group">
+        <sprite>sprites\spr_main_down</sprite>
+        <sprite>sprites\spr_main_up_walking</sprite>
+        <sprite>sprites\spr_main_down_walking</sprite>
+        <sprite>sprites\spr_main_shadow</sprite>
+        <sprite>sprites\spr_main_left</sprite>
+        <sprite>sprites\spr_main_left_walking</sprite>
+        <sprite>sprites\spr_main_down_still</sprite>
+        <sprite>sprites\spr_main_up_still</sprite>
+        <sprite>sprites\spr_main_right</sprite>
+        <sprite>sprites\spr_main_left_still</sprite>
+        <sprite>sprites\spr_main_up</sprite>
+        <sprite>sprites\spr_main_right_still</sprite>
+        <sprite>sprites\spr_main_right_walking</sprite>
+      </sprites>
       <sprite>sprites\spr_getting_up</sprite>
+      <sprites name="Main Group with Weapon">
+        <sprite>sprites\spr_main_right_sword</sprite>
+        <sprite>sprites\spr_main</sprite>
+      </sprites>
     </sprites>
     <sprites name="Inanimate Sprites">
       <sprite>sprites\spr_campfire</sprite>
@@ -61,8 +67,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-    <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
+    <room>rooms\rm_testing</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
