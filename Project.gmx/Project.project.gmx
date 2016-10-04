@@ -42,6 +42,9 @@
       <script>scripts\scr_player_getup.gml</script>
     </scripts>
     <script>scripts\script2.gml</script>
+    <scripts name="configs">
+      <script>scripts\cfg_defaultbinds.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
