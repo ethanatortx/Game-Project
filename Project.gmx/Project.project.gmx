@@ -34,6 +34,7 @@
     <sprites name="Inanimate Sprites">
       <sprite>sprites\spr_campfire</sprite>
     </sprites>
+    <sprite>sprites\spr_test</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -47,6 +48,9 @@
       <script>scripts\scr_player_getup.gml</script>
     </scripts>
     <script>scripts\script2.gml</script>
+    <scripts name="configs">
+      <script>scripts\cfg_defaultbinds.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
@@ -63,7 +67,11 @@
       <object>objects\fx_smoke</object>
     </objects>
     <object>objects\obj_campfire</object>
+<<<<<<< HEAD
     <object>objects\obj_sword</object>
+=======
+    <object>objects\obj_depthtest</object>
+>>>>>>> refs/remotes/origin/ethan_branch
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>

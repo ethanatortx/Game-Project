@@ -25,134 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// particle system
-smoke_system = part_system_create();
-part_system_position(smoke_system,x,y);
-part_system_depth(smoke_system,-y+1);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// create particle types
+            <string>/// initialize
 
-/*template:
-part_type_speed();
-part_type_direction();
-part_type_gravity();
-part_type_orientation();
-part_type_colour_mix();
-part_type_colour_rgb();
-part_type_colour_hsv();
-part_type_colour1();
-part_type_colour2();
-part_type_colour3();
-part_type_alpha1();
-part_type_alpha2();
-part_type_alpha3();
-part_type_blend();
-part_type_life();
-part_type_step();
-part_type_death();
-*/
-
-// smoke1
-smoke1 = part_type_create();
-part_type_shape(smoke1,pt_shape_pixel);
-part_type_speed(smoke1,.1,1,0,.2);
-part_type_scale(smoke1,1,1);
-part_type_size(smoke1,.5,.5,0,0);
-part_type_direction(smoke1,80,100,0,5);
-part_type_colour_hsv(smoke1,160,160,0,0,88,88);
-part_type_alpha3(smoke1,1,1,0);
-part_type_life(smoke1,60,60);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// create particle emitters
-
-/*template:
-part_emitter_exists();
-part_emitter_create();
-part_emitter_clear();
-part_emitter_region();
-part_emitter_burst();
-part_emitter_stream();
-part_emitter_destroy();
-part_emitter_destroy_all();
-*/
-
-// campfire emitter
-smoke_emitter1 = part_emitter_create(smoke_system);
-var rbound = -3;
-var lbound = 5;
-var upbound = 0;
-var downbound = 0;
-var shape = ps_shape_line;
-var distr = ps_distr_linear;
-part_emitter_region(smoke_system, smoke_emitter1, rbound,lbound,upbound,downbound,shape,distr);
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// create particle stream
-
-part_emitter_stream(smoke_system,smoke_emitter1,smoke1,3);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -169,11 +49,65 @@ part_emitter_stream(smoke_system,smoke_emitter1,smoke1,3);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wipe particle system
+            <string>/// menu interface
 
-part_type_destroy(smoke1);
-part_emitter_destroy(smoke_system,smoke_emitter1);
-part_system_destroy(smoke_system);
+// initialize default binds
+if (keyboard_check("d")) {
+    cfg_defaultbinds();
+}
+
+// start game
+if (keyboard_check(vk_enter)) {
+    room = rm_testing_environments;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// initialize default binds
+
+cfg_defaultbinds();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw keys available
 </string>
           </argument>
         </arguments>

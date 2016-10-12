@@ -1,6 +1,10 @@
 /// scr_move
 // argument0 = device used for input
 
+// initialize default binds
+// ||| REMOVE LATER |||
+cfg_defaultbinds();
+
 // input
 var pad_num = gamepad_get_device_count();
 var gp = undefined; // initialize var gp as a local variable for future use
@@ -24,10 +28,11 @@ if (gpinput) {
 } else if (!gpinput) {
     // keyboard axis assignment
     var walk_bool = keyboard_check(vk_shift);
-    var rkey = keyboard_check(vk_right);
-    var lkey = keyboard_check(vk_left);
-    var ukey = keyboard_check(vk_up);
-    var dkey = keyboard_check(vk_down);
+    
+    var rkey = keyboard_check(global.keybinds[0]);
+    var lkey = keyboard_check(global.keybinds[1]);
+    var ukey = keyboard_check(global.keybinds[2]);
+    var dkey = keyboard_check(global.keybinds[3]);
 
     // set axis movement
     // vertical axis assignment
@@ -49,6 +54,10 @@ if (gpinput) {
     }
     if (!rkey && !lkey or rkey && lkey) {
         var haxis = 0;
+    }
+    
+    if (walk_bool) {
+        
     }
 }
 
