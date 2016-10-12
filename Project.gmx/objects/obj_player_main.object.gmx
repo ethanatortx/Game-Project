@@ -3,7 +3,7 @@
   <spriteName>spr_main_down_still</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10000</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -136,7 +136,7 @@ instance_create(0,0,obj_quitgame);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="73">
+    <event eventtype="8" enumb="75">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -153,32 +153,9 @@ instance_create(0,0,obj_quitgame);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// redraw self
-draw_self();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="72">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draw shadow of pc
-draw_sprite(spr_main_shadow,0,x,y+2);
+            <string>/// debug
+
+draw_text(0,0,depth);
 </string>
           </argument>
         </arguments>
@@ -197,9 +174,9 @@ draw_sprite(spr_main_shadow,0,x,y+2);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,-1</point>
-    <point>12,-1</point>
-    <point>12,31</point>
-    <point>0,31</point>
+    <point>4,10</point>
+    <point>10,10</point>
+    <point>10,31</point>
+    <point>4,31</point>
   </PhysicsShapePoints>
 </object>
