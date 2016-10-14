@@ -66,8 +66,8 @@
     <object>objects\Meow_Meow_Kitty_Pretty</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_testing_environments</room>
+    <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_testing</room>
   </rooms>
   <help>
