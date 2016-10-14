@@ -174,9 +174,9 @@ draw_text(0,0,depth);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>4,10</point>
-    <point>10,10</point>
+    <point>2,28</point>
+    <point>10,28</point>
     <point>10,31</point>
-    <point>4,31</point>
+    <point>2,31</point>
   </PhysicsShapePoints>
 </object>
