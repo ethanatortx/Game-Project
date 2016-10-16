@@ -27,6 +27,7 @@
     </sprites>
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
+      <sprite>sprites\spr_treestump</sprite>
     </sprites>
     <sprite>sprites\spr_test</sprite>
   </sprites>
@@ -34,6 +35,7 @@
     <background>background\bg_concrete</background>
     <background>background\bg_snow</background>
     <background>background\bg_dirt</background>
+    <background>background\bg_grass</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -42,6 +44,9 @@
       <script>scripts\scr_player_getup.gml</script>
     </scripts>
     <script>scripts\script2.gml</script>
+    <scripts name="configs">
+      <script>scripts\cfg_defaultbinds.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
@@ -59,6 +64,7 @@
     </objects>
     <object>objects\obj_campfire</object>
     <object>objects\obj_depthtest</object>
+    <object>objects\obj_treestump</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
