@@ -46,6 +46,7 @@
     <scripts name="configs">
       <script>scripts\cfg_defaultbinds.gml</script>
     </scripts>
+    <script>scripts\script4.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="player">
@@ -63,11 +64,12 @@
     </objects>
     <object>objects\obj_campfire</object>
     <object>objects\obj_depthtest</object>
+    <object>objects\Meow_Meow_Kitty_Pretty</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-    <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
+    <room>rooms\rm_testing</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
