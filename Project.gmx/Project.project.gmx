@@ -27,6 +27,7 @@
     </sprites>
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
+      <sprite>sprites\spr_treestump</sprite>
     </sprites>
     <sprite>sprites\spr_test</sprite>
   </sprites>
@@ -46,6 +47,7 @@
     <scripts name="configs">
       <script>scripts\cfg_defaultbinds.gml</script>
     </scripts>
+    <script>scripts\script4.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="player">
@@ -63,11 +65,16 @@
     </objects>
     <object>objects\obj_campfire</object>
     <object>objects\obj_depthtest</object>
+<<<<<<< HEAD
+    <object>objects\Meow_Meow_Kitty_Pretty</object>
+=======
+    <object>objects\obj_treestump</object>
+>>>>>>> refs/remotes/origin/master
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-    <room>rooms\rm_testing</room>
     <room>rooms\rm_mainmenu</room>
+    <room>rooms\rm_testing</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
