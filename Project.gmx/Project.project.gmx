@@ -33,7 +33,6 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
-    <background>background\bg_snow</background>
     <background>background\bg_dirt</background>
     <background>background\bg_grass</background>
     <background>background\bg_monolith</background>
