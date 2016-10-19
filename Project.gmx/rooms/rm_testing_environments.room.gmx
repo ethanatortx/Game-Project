@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_player_main" x="336" y="272" name="inst_10A5102D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_campfire" x="368" y="256" name="inst_1CBEABC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_treestump" x="400" y="240" name="inst_AC241071" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_grass" x="288" y="288" w="16" h="16" xo="0" yo="0" id="10000805" name="inst_6A2B1D7D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
