@@ -47,6 +47,10 @@
       <script>scripts\scr_move.gml</script>
       <script>scripts\scr_player_getup.gml</script>
     </scripts>
+    <scripts name="player interaction">
+      <script>scripts\scr_player_interact.gml</script>
+      <script>scripts\scr_player_is_facing.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
