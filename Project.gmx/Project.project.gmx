@@ -37,6 +37,8 @@
     <background>background\bg_dirt</background>
     <background>background\bg_grass</background>
     <background>background\bg_monolith</background>
+    <background>background\bg_future_tileset</background>
+    <background>background\bg_water</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
