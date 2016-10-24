@@ -28,48 +28,47 @@
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
       <sprite>sprites\spr_treestump</sprite>
+      <sprite>sprites\spr_securedoor</sprite>
+      <sprite>sprites\spr_terminal</sprite>
     </sprites>
-    <sprite>sprites\spr_test</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
-    <background>background\bg_snow</background>
     <background>background\bg_dirt</background>
     <background>background\bg_grass</background>
+    <background>background\bg_monolith</background>
+    <background>background\bg_future_tileset</background>
+    <background>background\bg_water</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="configs">
+      <script>scripts\cfg_defaultbinds.gml</script>
+    </scripts>
     <scripts name="player movement">
       <script>scripts\scr_move.gml</script>
       <script>scripts\scr_player_getup.gml</script>
     </scripts>
-    <script>scripts\script2.gml</script>
-    <scripts name="configs">
-      <script>scripts\cfg_defaultbinds.gml</script>
+    <scripts name="player interaction">
+      <script>scripts\scr_player_interact.gml</script>
+      <script>scripts\scr_player_is_facing.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player_main</object>
-      <objects name="damage">
-        <object>objects\obj_pdmg_melee</object>
-        <object>objects\obj_pdmg_projectile</object>
-        <object>objects\bl_hitscan_projectile</object>
-      </objects>
     </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
-      <object>objects\fx_snow</object>
       <object>objects\fx_smoke</object>
     </objects>
     <object>objects\obj_campfire</object>
-    <object>objects\obj_depthtest</object>
     <object>objects\obj_treestump</object>
+    <object>objects\obj_securedoor</object>
+    <object>objects\obj_terminal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-    <room>rooms\rm_testing</room>
-    <room>rooms\rm_mainmenu</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
