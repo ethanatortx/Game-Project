@@ -69,6 +69,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
+    <room>rooms\MainEvironment</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
