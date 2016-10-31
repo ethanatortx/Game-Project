@@ -68,8 +68,8 @@
     <object>objects\obj_terminal</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_testing_environments</room>
     <room>rooms\room1</room>
+    <room>rooms\rm_testing_environments</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
