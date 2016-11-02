@@ -31,6 +31,7 @@
       <sprite>sprites\spr_securedoor</sprite>
       <sprite>sprites\spr_terminal</sprite>
     </sprites>
+    <sprite>sprites\sprite19</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
