@@ -5,6 +5,9 @@
 // ||| REMOVE LATER |||
 cfg_defaultbinds();
 
+var walk_anim_speed = .175;
+var run_anim_speed = .35;
+
 // input
 var pad_num = gamepad_get_device_count();
 var gp = undefined; // initialize var gp as a local variable for future use
@@ -24,10 +27,8 @@ if (gpinput) {
     gamepad_set_axis_deadzone(0,0.2)
     var vaxis = gamepad_axis_value(argument0, gp_axislv);
     var haxis = gamepad_axis_value(argument0, gp_axislh);
-    var walk_bool = false;
 } else if (!gpinput) {
     // keyboard axis assignment
-    var walk_bool = keyboard_check(vk_shift);
     
     var rkey = keyboard_check(global.keybinds[0]);
     var lkey = keyboard_check(global.keybinds[1]);
@@ -55,14 +56,10 @@ if (gpinput) {
     if (!rkey && !lkey or rkey && lkey) {
         var haxis = 0;
     }
-    
-    if (walk_bool) {
-        
-    }
 }
 
 // speed determination
-if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) || walk_bool) { // check if player stick movement is in walking zone (radius < .6)
+if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6))) { // check if player stick movement is in walking zone (radius < .6)
     if (vaxis < 0) {
         var vspd = -1;
     } else if (vaxis > 0) {
@@ -82,20 +79,20 @@ if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) || walk_b
     if (vaxis < 0.6 and vaxis > 0) {
         sprite_index = spr_main_down_walking;
         spr_resting = spr_main_down_still;
-        image_speed = .175;
+        image_speed = walk_anim_speed;
     } else if (vaxis > -0.6 and vaxis < 0) {
         sprite_index = spr_main_up_walking;
         spr_resting = spr_main_up_still;
-        image_speed = .175;
+        image_speed = walk_anim_speed;
     }
     if (haxis < 0.6 and haxis > 0) {
         sprite_index = spr_main_right_walking;
         spr_resting = spr_main_right_still;
-        image_speed = .175;
+        image_speed = walk_anim_speed;
     } else if (haxis > -0.6 and haxis < 0) {
         sprite_index = spr_main_left_walking;
         spr_resting = spr_main_left_still;
-        image_speed = .175;
+        image_speed = walk_anim_speed;
     }
 } else { // do running animation when stick movement is past walking zone (radius >= 0.6)
     vspd = round(global.player_speed*vaxis);
@@ -103,20 +100,20 @@ if (((vaxis < 0.6 and vaxis > -0.6) && (haxis < 0.6 and haxis > -0.6)) || walk_b
     if (vaxis > 0.6) {
         sprite_index = spr_main_down;
         spr_resting = spr_main_down_still;
-        image_speed = .3;
+        image_speed = run_anim_speed;
     } else if (vaxis < -0.6) {
         sprite_index = spr_main_up;
         spr_resting = spr_main_up_still;
-        image_speed = .3;
+        image_speed = run_anim_speed;
     }
     if (haxis > 0.6) {
         sprite_index = spr_main_right;
         spr_resting = spr_main_right_still;
-        image_speed = .3;
+        image_speed = run_anim_speed;
     } else if (haxis < -0.6) {
         sprite_index = spr_main_left;
         spr_resting = spr_main_left_still;
-        image_speed = .3;
+        image_speed = run_anim_speed;
     }
 }
 

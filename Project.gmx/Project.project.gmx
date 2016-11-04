@@ -31,6 +31,7 @@
       <sprite>sprites\spr_securedoor</sprite>
       <sprite>sprites\spr_terminal</sprite>
     </sprites>
+    <sprite>sprites\spr_wanderer</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -57,6 +58,7 @@
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player_main</object>
+      <object>objects\obj_wanderer</object>
     </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
@@ -69,6 +71,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
