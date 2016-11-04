@@ -35,7 +35,10 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
+    <background>background\background7</background>
+    <background>background\background8</background>
     <background>background\bg_dirt</background>
+    <background>background\background6</background>
     <background>background\bg_grass</background>
     <background>background\bg_monolith</background>
     <background>background\bg_future_tileset</background>
@@ -70,6 +73,7 @@
     <object>objects\obj_terminal</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Starter_Room_</room>
     <room>rooms\rm_testing_environments</room>
     <room>rooms\room1</room>
   </rooms>

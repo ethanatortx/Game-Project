@@ -8,6 +8,7 @@ cfg_defaultbinds();
 var walk_anim_speed = .175;
 var run_anim_speed = .35;
 
+
 // input
 var pad_num = gamepad_get_device_count();
 var gp = undefined; // initialize var gp as a local variable for future use

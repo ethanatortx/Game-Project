@@ -14,3 +14,4 @@ if (string_count("up",sprite) > 0) {
 } else {
     return -1; // return -1 if the player's sprite is not one of the four directional movement sprites
 }
+
