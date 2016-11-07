@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_player_main" x="256" y="336" name="inst_10A5102D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_relic" x="288" y="288" name="inst_9DE2DB21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wanderer" x="192" y="160" name="inst_F0AE64FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="&lt;undefined&gt;" x="0" y="128" w="32" h="32" xo="32" yo="0" id="10001121" name="inst_CF512ACF" depth="10000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
