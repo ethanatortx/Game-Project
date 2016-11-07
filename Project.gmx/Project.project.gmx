@@ -10,7 +10,6 @@
       <sprites name="weapons">
         <sprite>sprites\spr_sword</sprite>
       </sprites>
-      <sprite>sprites\spr_main_shadow</sprite>
       <sprite>sprites\spr_main_up</sprite>
       <sprite>sprites\spr_main_up_still</sprite>
       <sprite>sprites\spr_main_up_walking</sprite>
@@ -23,7 +22,6 @@
       <sprite>sprites\spr_main_right</sprite>
       <sprite>sprites\spr_main_right_still</sprite>
       <sprite>sprites\spr_main_right_walking</sprite>
-      <sprite>sprites\spr_getting_up</sprite>
     </sprites>
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
@@ -37,11 +35,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
-    <background>background\bg_dirt</background>
     <background>background\bg_grass</background>
-    <background>background\bg_monolith</background>
-    <background>background\bg_future_tileset</background>
-    <background>background\bg_water</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -57,9 +51,6 @@
       <script>scripts\scr_player_is_facing.gml</script>
     </scripts>
   </scripts>
-  <shaders name="shaders">
-    <shader type="GLSLES">shaders\shader0.shader</shader>
-  </shaders>
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player_main</object>
@@ -77,7 +68,6 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
