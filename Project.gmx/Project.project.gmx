@@ -30,8 +30,10 @@
       <sprite>sprites\spr_treestump</sprite>
       <sprite>sprites\spr_securedoor</sprite>
       <sprite>sprites\spr_terminal</sprite>
+      <sprite>sprites\spr_pentagram</sprite>
     </sprites>
     <sprite>sprites\spr_wanderer</sprite>
+    <sprite>sprites\spr_AOE</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -55,6 +57,9 @@
       <script>scripts\scr_player_is_facing.gml</script>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader0.shader</shader>
+  </shaders>
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player_main</object>
@@ -68,6 +73,7 @@
     <object>objects\obj_treestump</object>
     <object>objects\obj_securedoor</object>
     <object>objects\obj_terminal</object>
+    <object>objects\test_sprites</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
