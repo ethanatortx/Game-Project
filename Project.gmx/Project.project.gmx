@@ -33,6 +33,7 @@
     </sprites>
     <sprite>sprites\spr_wanderer</sprite>
     <sprite>sprites\spr_AOE</sprite>
+    <sprite>sprites\spr_skellymens</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
