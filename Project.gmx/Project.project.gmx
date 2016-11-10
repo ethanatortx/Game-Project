@@ -34,6 +34,7 @@
     <sprite>sprites\spr_wanderer</sprite>
     <sprite>sprites\spr_AOE</sprite>
     <sprite>sprites\spr_skellymens</sprite>
+    <sprite>sprites\test_sprite_default</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -54,7 +55,8 @@
     </scripts>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shd_blackwhite.shader</shader>
+    <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
+    <shader type="GLSLES">shaders\shd_customTint.shader</shader>
   </shaders>
   <objects name="objects">
     <objects name="player">
@@ -74,6 +76,7 @@
     <object>objects\obj_terminal</object>
     <object>objects\test_sprites</object>
     <object>objects\obj_relic</object>
+    <object>objects\obj_customTint</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>

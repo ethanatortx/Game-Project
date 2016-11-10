@@ -31,7 +31,7 @@ void main()
     float average = (baseC.r + baseC.g + baseC.b) / 3.0;
     float alpha = baseC.a;
     
-    vec4 newC = vec4(average,average,average,alpha);
+    vec4 newC = vec4(red,green,blue,alpha);
     
     gl_FragColor = newC;
 }
