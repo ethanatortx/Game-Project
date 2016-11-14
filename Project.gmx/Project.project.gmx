@@ -39,6 +39,7 @@
   <backgrounds name="background">
     <background>background\bg_concrete</background>
     <background>background\bg_grass</background>
+    <background>background\bg_rocks</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -76,6 +77,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
+    <room>rooms\rm_environ2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
