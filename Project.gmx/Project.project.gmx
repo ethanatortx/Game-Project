@@ -54,6 +54,16 @@
     <scripts name="player interaction">
       <script>scripts\scr_playerTriggerDialog.gml</script>
     </scripts>
+    <scripts name="delta timescale">
+      <script>scripts\scrDeltaApply.gml</script>
+      <script>scripts\scrDeltaApplyBasic.gml</script>
+      <script>scripts\scrDeltaCheck.gml</script>
+      <script>scripts\scrDeltaClockCreate.gml</script>
+      <script>scripts\scrDeltaClockSet.gml</script>
+      <script>scripts\scrDeltaClockStep.gml</script>
+      <script>scripts\scrDeltaRevert.gml</script>
+      <script>scripts\scrDeltaRevertBasic.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
@@ -78,6 +88,7 @@
     </objects>
     <object>objects\obj_testing</object>
     <object>objects\obj_deadTree</object>
+    <object>objects\delta_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_environ2</room>
