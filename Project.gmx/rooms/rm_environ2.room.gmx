@@ -41,7 +41,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="obj_player_main" xview="0" yview="0" wview="480" hview="270" xport="0" yport="0" wport="1920" hport="1080" hborder="240" vborder="135" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -51,7 +51,9 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_deadTree" x="192" y="192" name="inst_DFB8A71B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_deadTree" x="160" y="160" name="inst_DFB8A71B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player_main" x="192" y="192" name="inst_3D51F8C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_darken" x="256" y="256" name="inst_44B6F89C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_rocks" x="64" y="64" w="64" h="64" xo="0" yo="0" id="10001619" name="inst_86000393" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -61,12 +63,7 @@
     <tile bgName="bg_rocks" x="320" y="64" w="64" h="64" xo="0" yo="0" id="10001623" name="inst_DDA2BF29" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="320" y="128" w="64" h="64" xo="0" yo="0" id="10001624" name="inst_1479D3DB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="256" y="128" w="64" h="64" xo="0" yo="0" id="10001625" name="inst_F8F98C0F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rocks" x="192" y="128" w="64" h="64" xo="0" yo="0" id="10001626" name="inst_4AA467B2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rocks" x="128" y="128" w="64" h="64" xo="0" yo="0" id="10001627" name="inst_B991F638" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rocks" x="64" y="128" w="64" h="64" xo="0" yo="0" id="10001628" name="inst_B943F1BE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="64" y="192" w="64" h="64" xo="0" yo="0" id="10001629" name="inst_E655656A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rocks" x="128" y="192" w="64" h="64" xo="0" yo="0" id="10001630" name="inst_35F1C1A3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rocks" x="192" y="192" w="64" h="64" xo="0" yo="0" id="10001631" name="inst_B842D752" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="256" y="192" w="64" h="64" xo="0" yo="0" id="10001632" name="inst_652DD71B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="320" y="192" w="64" h="64" xo="0" yo="0" id="10001633" name="inst_4A8AF349" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="320" y="256" w="64" h="64" xo="0" yo="0" id="10001634" name="inst_F18399C5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -79,13 +76,18 @@
     <tile bgName="bg_rocks" x="192" y="320" w="64" h="64" xo="0" yo="0" id="10001641" name="inst_70252AC3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="256" y="320" w="64" h="64" xo="0" yo="0" id="10001642" name="inst_3B0DFDED" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rocks" x="320" y="320" w="64" h="64" xo="0" yo="0" id="10001643" name="inst_16586B0B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rocks" x="192" y="128" w="64" h="64" xo="0" yo="0" id="10001650" name="inst_490C8DDA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rocks" x="192" y="192" w="64" h="64" xo="0" yo="0" id="10001651" name="inst_C7EA6B2A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rocks" x="128" y="192" w="64" h="64" xo="0" yo="0" id="10001652" name="inst_1D5C375A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rocks" x="64" y="128" w="64" h="64" xo="0" yo="0" id="10001654" name="inst_226F1117" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rocks" x="128" y="128" w="64" h="64" xo="64" yo="0" id="10001655" name="inst_5E68F91A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
-  <PhysicsWorld>0</PhysicsWorld>
+  <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
   <PhysicsWorldRight>1024</PhysicsWorldRight>
   <PhysicsWorldBottom>768</PhysicsWorldBottom>
   <PhysicsWorldGravityX>0</PhysicsWorldGravityX>
-  <PhysicsWorldGravityY>10</PhysicsWorldGravityY>
+  <PhysicsWorldGravityY>0</PhysicsWorldGravityY>
   <PhysicsWorldPixToMeters>0.100000001490116</PhysicsWorldPixToMeters>
 </room>

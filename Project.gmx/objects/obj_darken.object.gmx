@@ -51,7 +51,7 @@ shader_reset();
           <argument>
             <kind>1</kind>
             <string>/// redraw input image in black and white
-shader_set(shd_blackWhite);
+shader_set(shd_darken);
 
 </string>
           </argument>

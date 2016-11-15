@@ -57,6 +57,7 @@
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
+    <shader type="GLSLES">shaders\shd_darken.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_comicSans</font>
@@ -68,6 +69,7 @@
     </objects>
     <objects name="shaders">
       <object>objects\obj_blackwhite</object>
+      <object>objects\obj_darken</object>
     </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
@@ -78,8 +80,8 @@
     <object>objects\obj_deadTree</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_testing_environments</room>
     <room>rooms\rm_environ2</room>
+    <room>rooms\rm_testing_environments</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
