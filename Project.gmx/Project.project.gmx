@@ -75,22 +75,24 @@
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player_main</object>
-      <object>objects\obj_wanderer</object>
     </objects>
     <objects name="shaders">
       <object>objects\obj_blackwhite</object>
       <object>objects\obj_darken</object>
     </objects>
+    <objects name="effects">
+      <object>objects\fx_smoke</object>
+    </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
-      <object>objects\fx_smoke</object>
       <object>objects\obj_message</object>
     </objects>
-    <object>objects\obj_testing</object>
     <object>objects\obj_deadTree</object>
     <object>objects\delta_control</object>
+    <object>objects\obj_debug</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initial</room>
     <room>rooms\rm_environ2</room>
     <room>rooms\rm_testing_environments</room>
   </rooms>
