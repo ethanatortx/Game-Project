@@ -92,8 +92,8 @@
     <object>objects\obj_debug</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_initial</room>
     <room>rooms\rm_environ2</room>
+    <room>rooms\rm_initial</room>
     <room>rooms\rm_testing_environments</room>
   </rooms>
   <help>
