@@ -4,7 +4,7 @@ var xpos = argument0;
 var ypos = argument1;
 var obj = argument2;
 
-if (keyboard_check_pressed(vk_enter)) {
+if (keyboard_check_pressed(vk_enter) or (keyboard_check(ord('Z')))) {
     if (place_meeting(xpos, ypos, obj)) {
         newMessage = instance_create(0,0,obj_message);
         newMessage.text = "Hello World!";
