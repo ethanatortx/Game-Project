@@ -71,10 +71,12 @@
     </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
+      <object>objects\obj_parentPhys</object>
       <object>objects\fx_smoke</object>
       <object>objects\obj_message</object>
     </objects>
     <object>objects\obj_testing</object>
+    <object>objects\obj_secureDoor</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\interaction_Testing</room>
