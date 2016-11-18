@@ -1,4 +1,13 @@
 /// scr_move
+
+
+
+
+// legacy code, replaced with separate functions scrMoveKeyboard and scrMoveGamepad
+
+
+
+
 // argument0 = device used for input
 
 // initialize default binds
@@ -124,7 +133,7 @@ if (haxis == 0 and vaxis == 0) { // if no movement, cease animation and stand st
 } 
 
 // movement
-phy_position_x += hspd;
-phy_position_y += vspd;
+x += hspd;
+y += vspd;
 
 

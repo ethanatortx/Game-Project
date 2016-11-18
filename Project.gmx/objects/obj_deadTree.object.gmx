@@ -33,7 +33,7 @@ scr_playerTriggerDialog(x,y,obj_player_main);
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0</PhysicsObjectDensity>
@@ -44,10 +44,5 @@ scr_playerTriggerDialog(x,y,obj_player_main);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>72,60</point>
-    <point>80,60</point>
-    <point>80,68</point>
-    <point>72,68</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>
