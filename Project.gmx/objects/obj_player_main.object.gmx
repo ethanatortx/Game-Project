@@ -26,8 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/// initialize values
-global.player_speed = scrDeltaApply(3, true);
+global.player_speed = scrDeltaApply(2, true);
 global.player_state = 'move';
+
+global.moveModX = 1;
+global.moveModY = 1;
+
 spr_resting = spr_main_down_still;
 image_speed = 0;
 
@@ -60,6 +64,8 @@ cfg_defaultbinds();
 if (global.player_state = 'move') {
     event_user(0);
 }
+
+
 </string>
           </argument>
         </arguments>

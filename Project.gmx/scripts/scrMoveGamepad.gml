@@ -20,11 +20,34 @@ var r = 0.6; // circle radius
 // checking inside radius
 var circleCheckFloat = (sqr(haxis) + sqr(vaxis) - sqr(r)); // gives float for whether the axis movement is inside or outside the circle
 
+// get signs of the axis movement to determine direction
+var signs;
+signs[0] = sign(haxis);
+signs[1] = sign(vaxis);
+
+// quadrant
+var quadrant;
+if (signs[0] == (1 || 0) && signs[1] == 1) { quadrant = 0; }
+if (signs[0] == -1 && signs[1] == (1 || 0)) { quadrant = 1; }
+if (signs[0] == (-1 || 0) && signs[1] == -1) { quadrant = 2; }
+if (signs[0] == 1 && signs[1] == (-1 || 0)) { quadrant = 3; }
+
+var angle; // angle relative to intial position on axis circle
+angle = radtodeg(arctan((signs[1]*vaxis)/(signs[0]*haxis))) + (90 * quadrant);
+
 // if circleCheckFloat is < 0, it is inside the radius of defined movement
 if (circleCheckFloat < 0) {
-    // walking code goes here
+    var newHorizontalSpd = hspd * .6;
+    var newVerticalSpd = vspd * .6;
 } 
 // if circleCheckFloat is = 0, it is on the radius of defined movement; if it is > 0, it is outside the radius of defined movement
 else if (circleCheckFloat >= 0) {
-    // running code goes here
+    var newHorizontalSpd = hspd;
+    var newVerticalSpd = vspd;
 }
+
+var relativeSpeed; // speed at angle
+relativeSpeed = sqrt(sqr(newHorizontalSpd) + sqr(newVerticalSpd));
+
+direction = angle;
+speed = relativeSpeed;
