@@ -32,6 +32,8 @@ global.player_state = 'move';
 global.moveModX = 1;
 global.moveModY = 1;
 
+global.walkSpeedMod = 0.6;
+
 spr_resting = spr_main_down_still;
 image_speed = 0;
 
@@ -142,6 +144,7 @@ var vspd = global.player_speed * global.moveModY;
 var runAnimSpd = scrDeltaApply(.5,true);
 
 global.axisDeadZone = 0.2;
+var walkThreshold = 0.6;
 var device = 0;
 var gpinput = false;
 
@@ -160,12 +163,19 @@ if (gp[device]) { // if specified device slot is gamepad or not
 
 if (gpinput) {
     // gamepad axis assignment
-    gamepad_set_axis_deadzone(0,0.2)
-    var vaxis = gamepad_axis_value(device, gp_axislv);
-    var haxis = gamepad_axis_value(device, gp_axislh);
-    
-    scrMoveGamepad(hspd,vspd,runAnimSpd,haxis,vaxis);
-    
+    gamepad_set_axis_deadzone(device,0.2)
+    vaxis = gamepad_axis_value(device, gp_axislv);
+    haxis = gamepad_axis_value(device, gp_axislh);
+
+    // check if controller input exists:
+    if (haxis != 0 or vaxis != 0) {
+        scrMoveGamepad(hspd,vspd,runAnimSpd,haxis,vaxis,walkThreshold);
+    } else {
+        direction = 0;
+        speed = 0;
+        angle = 0;
+    }
+
 } else if (!gpinput) {
     // keyboard axis assignment
     var rkey = keyboard_check(global.keybinds[0]);
@@ -232,6 +242,9 @@ instance_create(0,0,obj_quitgame);
             <string>/// debug
 
 draw_text(0,20,global.delta);
+draw_text(0,30,angle)
+draw_text(0,40,haxis)
+draw_text(0,50,vaxis)
 </string>
           </argument>
         </arguments>
