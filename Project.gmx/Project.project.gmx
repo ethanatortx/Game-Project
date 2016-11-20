@@ -46,7 +46,6 @@
   <scripts name="scripts">
     <scripts name="configs">
       <script>scripts\cfg_defaultbinds.gml</script>
-      <script>scripts\script13.gml</script>
     </scripts>
     <scripts name="player movement">
       <scripts name="legacy movement">
@@ -55,6 +54,7 @@
       </scripts>
       <script>scripts\scrMoveGamepad.gml</script>
       <script>scripts\scrMoveKeyboard.gml</script>
+      <script>scripts\scrDetectPlayerDirection.gml</script>
     </scripts>
     <scripts name="player interaction">
       <script>scripts\scr_playerTriggerDialog.gml</script>
@@ -69,6 +69,7 @@
       <script>scripts\scrDeltaRevert.gml</script>
       <script>scripts\scrDeltaRevertBasic.gml</script>
     </scripts>
+    <script>scripts\scrArrToMap.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>

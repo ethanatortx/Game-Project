@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// initialize values
-global.player_speed = scrDeltaApply(2, true);
-global.player_state = 'move';
+global.playeSpeed = scrDeltaApply(2, true);
+global.playerState = 'move';
 
 global.moveModX = 1;
 global.moveModY = 1;
@@ -38,6 +38,35 @@ spr_resting = spr_main_down_still;
 image_speed = 0;
 
 cfg_defaultbinds();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// define player movement textures in array
+
+global.playerSprArr = undefined;
+global.playerSprArr[0] = spr_main_down;
+global.playerSprArr[1] = spr_main_up;
+global.playerSprArr[2] = spr_main_left;
+global.playerSprArr[3] = spr_main_right;
+
+
 </string>
           </argument>
         </arguments>
@@ -63,7 +92,7 @@ cfg_defaultbinds();
             <string>/// movement
 
 // only allow walking if specified
-if (global.player_state = 'move') {
+if (global.playerState = 'move') {
     event_user(0);
 }
 
@@ -88,32 +117,7 @@ if (global.player_state = 'move') {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// getting up
-
-if (global.player_state = 'getting up') {
-    scr_player_getup(0.05);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// misc code
+            <string>/// set dynamic depth
 depth = -y; // makes its depth be lower than that of the ones infront of it
 </string>
           </argument>
@@ -169,7 +173,7 @@ if (gpinput) {
 
     // check if controller input exists:
     if (haxis != 0 or vaxis != 0) {
-        scrMoveGamepad(hspd,vspd,runAnimSpd,haxis,vaxis,walkThreshold);
+        scrMoveGamepad(hspd,vspd,haxis,vaxis,walkThreshold);
     } else {
         direction = 0;
         speed = 0;

@@ -1,22 +1,14 @@
-/// scrMoveGamepad(hspd, vspd, runAnimSpeed, haxis, vaxis, walkThreshold);
+/// scrMoveGamepad(hspd, vspd, haxis, vaxis, walkThreshold);
 
 
 // assign parameters to local variables to increase readability;
 var hspd = argument0;
 var vspd = argument1;
 
-var runAnimSpd = argument2;
+var haxis = argument2;
+var vaxis = argument3;
 
-var haxis = argument3;
-var vaxis = argument4;
-
-// assign default directional movement sprites
-var rSpr = spr_main_right;  // right
-var lSpr = spr_main_left;   // left
-var uSpr = spr_main_up;     // up
-var dSpr = spr_main_down;   // down
-
-var r = argument5; // circle radius
+var r = argument4; // circle radius
 
 // checking inside radius
 var circleCheckFloat = (sqr(haxis) + sqr(vaxis) - sqr(r)); // gives float for whether the axis movement is inside or outside the circle
@@ -29,28 +21,29 @@ signs[1] = sign(vaxis);
 // quadrant
 var quadrant;
 
-if (haxis > 0 and vaxis <= 0) {
+if (haxis > 0 and vaxis <= 0) { // top right
     quadrant = 0;
-} else if (haxis  <= 0 and vaxis < 0) {
+} else if (haxis  <= 0 and vaxis < 0) { // top left
     quadrant = 1;
-} else if (haxis < 0 and vaxis >= 0) {
+} else if (haxis < 0 and vaxis >= 0) { // bottom left
     quadrant = 2;
-} else if (haxis >= 0 and vaxis > 0) {
+} else if (haxis >= 0 and vaxis > 0) { // bottom right
     quadrant = 3;
 }
 
 // var angle; // angle relative to intial position on axis circle
 angle = (radtodeg(arctan((signs[1]*vaxis)/(signs[0]*haxis))))
 
-var neg = power(-1,quadrant);
+var neg = power(-1,quadrant); // put quadrant code into t/f format (-1,1) : quadrants 1/3 are -1, quadrants 0,2 are 1
 
+// invert angle if in designated negative quadrant
 if (neg<0) {
     if (angle != 0) {
         angle = 90 - angle;
     }
 }
 
-angle += (90*quadrant);
+angle += (90*quadrant); // increase in relation to initial side
 
 // if circleCheckFloat is < 0, it is inside the radius of defined movement
 if (circleCheckFloat < 0) {
@@ -66,5 +59,5 @@ else if (circleCheckFloat >= 0) {
 var relativeSpeed; // speed at angle
 relativeSpeed = sqrt(sqr(newHorizontalSpd) + sqr(newVerticalSpd));
 
-direction = angle;
-speed = relativeSpeed;
+direction = angle; // set angle to angle of joystick
+speed = relativeSpeed; // set speed to hypotenuse of joystick angle and both axes
