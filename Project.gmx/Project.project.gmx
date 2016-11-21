@@ -7,21 +7,10 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="main character">
-      <sprites name="weapons">
-        <sprite>sprites\spr_sword</sprite>
-      </sprites>
       <sprite>sprites\spr_main_up</sprite>
-      <sprite>sprites\spr_main_up_still</sprite>
-      <sprite>sprites\spr_main_up_walking</sprite>
       <sprite>sprites\spr_main_down</sprite>
-      <sprite>sprites\spr_main_down_still</sprite>
-      <sprite>sprites\spr_main_down_walking</sprite>
       <sprite>sprites\spr_main_left</sprite>
-      <sprite>sprites\spr_main_left_still</sprite>
-      <sprite>sprites\spr_main_left_walking</sprite>
       <sprite>sprites\spr_main_right</sprite>
-      <sprite>sprites\spr_main_right_still</sprite>
-      <sprite>sprites\spr_main_right_walking</sprite>
     </sprites>
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
