@@ -34,9 +34,6 @@ global.moveModY = 1;
 
 global.walkSpeedMod = 0.6;
 
-
-image_speed = 0;
-
 cfg_defaultbinds();
 </string>
           </argument>
@@ -181,21 +178,14 @@ if (gpinput) {
     }
 
 } else if (!gpinput) {
-    // keyboard axis assignment
-    var rkey = keyboard_check(global.keybinds[0]);
-    var lkey = keyboard_check(global.keybinds[1]);
-    var ukey = keyboard_check(global.keybinds[2]);
-    var dkey = keyboard_check(global.keybinds[3]);
-
-    var keytemp = ds_list_create();
-    ds_list_add(keytemp,rkey);
-    ds_list_add(keytemp,lkey);
-    ds_list_add(keytemp,ukey);
-    ds_list_add(keytemp,dkey);
+    // keyboard key array assignment
+    var keyArr;
+    keyArr[0] = global.keybinds[0]; // left
+    keyArr[1] = global.keybinds[1]; // right
+    keyArr[2] = global.keybinds[2]; // up
+    keyArr[3] = global.keybinds[3]; // down
     
-    scrMoveKeyboard(hspd,vspd,keytemp);
-    
-    ds_list_destroy(keytemp);
+    scrMoveKeyboard(hspd,vspd,keyArr);
 }
 </string>
           </argument>
