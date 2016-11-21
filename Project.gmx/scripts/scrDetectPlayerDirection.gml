@@ -1,1 +1,3 @@
-/// scrDetectPlayerDirection(spriteArray, signsArray)
+/// scrDetectPlayerDirection()
+
+

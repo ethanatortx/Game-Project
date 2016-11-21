@@ -21,9 +21,7 @@
       <sprite>sprites\obj_goldenmonkey</sprite>
       <sprite>sprites\spr_deadTree</sprite>
     </sprites>
-    <sprite>sprites\spr_wanderer</sprite>
     <sprite>sprites\spr_AOE</sprite>
-    <sprite>sprites\spr_skellymens</sprite>
     <sprite>sprites\test_sprite_default</sprite>
   </sprites>
   <backgrounds name="background">

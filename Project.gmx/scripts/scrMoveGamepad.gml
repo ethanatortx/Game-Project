@@ -32,11 +32,11 @@ if (haxis > 0 and vaxis <= 0) { // top right
 }
 
 // var angle; // angle relative to intial position on axis circle
-angle = (radtodeg(arctan((signs[1]*vaxis)/(signs[0]*haxis))))
+var angle = (radtodeg(arctan((signs[1]*vaxis)/(signs[0]*haxis))));
 
 var neg = power(-1,quadrant); // put quadrant code into t/f format (-1,1) : quadrants 1/3 are -1, quadrants 0,2 are 1
 
-// invert angle if in designated negative quadrant
+// invert angle if in designated negative quadrants
 if (neg<0) {
     if (angle != 0) {
         angle = 90 - angle;
@@ -49,7 +49,8 @@ angle += (90*quadrant); // increase in relation to initial side
 if (circleCheckFloat < 0) {
     var newHorizontalSpd = hspd * global.walkSpeedMod;
     var newVerticalSpd = vspd * global.walkSpeedMod;
-} 
+}
+
 // if circleCheckFloat is = 0, it is on the radius of defined movement; if it is > 0, it is outside the radius of defined movement
 else if (circleCheckFloat >= 0) {
     var newHorizontalSpd = hspd;
