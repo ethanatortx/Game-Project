@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_ping</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="main character">
       <sprite>sprites\spr_main_up</sprite>
@@ -41,7 +43,6 @@
       </scripts>
       <script>scripts\scrMoveGamepad.gml</script>
       <script>scripts\scrMoveKeyboard.gml</script>
-      <script>scripts\scrDetectPlayerDirection.gml</script>
     </scripts>
     <scripts name="player interaction">
       <script>scripts\scr_playerTriggerDialog.gml</script>
@@ -57,6 +58,7 @@
       <script>scripts\scrDeltaRevertBasic.gml</script>
     </scripts>
     <script>scripts\scrArrToMap.gml</script>
+    <script>scripts\script16.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
@@ -86,10 +88,13 @@
     <object>objects\delta_control</object>
     <object>objects\obj_debug</object>
     <object>objects\damage_parent</object>
+    <objects name="damage objects">
+      <object>objects\obj_beamProjectile</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_testing</room>
     <room>rooms\rm_initial</room>
+    <room>rooms\rm_testing</room>
     <room>rooms\rm_environ2</room>
     <room>rooms\rm_testing_environments</room>
   </rooms>

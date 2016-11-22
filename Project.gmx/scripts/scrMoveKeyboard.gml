@@ -92,3 +92,4 @@ if (haxis == 1 && vaxis == 1) { // down and right diagonal
 
 direction = angle;
 speed = relativeSpd;
+sprite_index = spr;
