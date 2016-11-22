@@ -85,6 +85,7 @@
     </objects>
     <object>objects\delta_control</object>
     <object>objects\obj_debug</object>
+    <object>objects\damage_parent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
