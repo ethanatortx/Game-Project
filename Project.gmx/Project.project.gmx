@@ -58,7 +58,8 @@
       <script>scripts\scrDeltaRevertBasic.gml</script>
     </scripts>
     <script>scripts\scrArrToMap.gml</script>
-    <script>scripts\script16.gml</script>
+    <script>scripts\scrRotatePoint.gml</script>
+    <script>scripts\scrRotateRectangle.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>

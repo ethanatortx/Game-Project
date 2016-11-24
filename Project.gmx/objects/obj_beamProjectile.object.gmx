@@ -25,17 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// initialize variables
+            <string>/// initialize variables
 
 // damage dealt per tick to player
 damage = 0;
 
 // position beam originates from (top left corner of beam)
 posX = 0; // x position
-posY = 0; // y position
+posY = 300; // y position
 
 // angle of beam
-dir = 0;
+dir = 30;
 
 // dimensions of beam (-1 limit is unbounded)
 
@@ -63,11 +63,6 @@ alphaInside = .5; // alpha value of inside
 colorEdge = make_colour_rgb(220,0,0);
 alphaEdge = .8; // alpha value of edge of beam
 edgeWidth = 5; // width of the bounding on the beam in pixels
-
-// apply delta to variables
-event_user(0);
-
-
 </string>
           </argument>
         </arguments>
@@ -90,89 +85,13 @@ event_user(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// call beam modification user event and damage event
+            <string>/// modify beam and deal damage
 
 // modify beam dimensions
-event_user(3);
+event_user(0);
 
-// check for player collision and damage player
-event_user(2);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// modify beam dimensions
-
-if (lengthLimit &gt;= 0) {
-    if (length &lt; lengthLimit) {
-        length += lSpd;    
-    }
-} else if (lengthLimit == -1) {
-    length += lSpd;
-}
-
-if (widthLimit &gt;= 0) {
-    if (width &lt; widthLimit) {
-        width += wSpd;    
-    }
-} else if (widthLimit == -1) {
-    width += wSpd;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="12">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// check player collision and damage player
-
-// check whether or not the player is within the bounding box of the beam (simple collision checking)
-if (collision_rectangle(posX,posX+length,posY,posY+width,obj_player_main,false,true)) {
-    if (global.playerInvincible != true) { // check whether or not the player is invincible
-        
-        // deal damage to the player
-        global.playerHealth -= damage;
-        
-        // call damage invulnerability activation event in player object
-        with (obj_player_main) {
-            event_user(5);
-        }
-    }
-}
+// deal damage to player
+event_user(1);
 </string>
           </argument>
         </arguments>
@@ -195,15 +114,11 @@ if (collision_rectangle(posX,posX+length,posY,posY+width,obj_player_main,false,t
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// remove delta from all repeatedly applied variables
+            <string>/// damage player
 
-damage = scrDeltaRevert(damage);
-
-posX = scrDeltaRevert(posX);
-posY = scrDeltaRevert(posY);
-
-lSpd = scrDeltaRevert(lSpd);
-wSpd = scrDeltaRevert(wSpd);
+if (point_in_rectangle(obj_player_main.x,obj_player_main.y,xOnePrime,yOnePrime,xTwoPrime,yTwoPrime)) {
+    global.playerHealth -= scrDeltaApply(damage,true);
+}
 </string>
           </argument>
         </arguments>
@@ -226,15 +141,37 @@ wSpd = scrDeltaRevert(wSpd);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// apply delta to all repeatedly applied variables
+            <string>/// modify beam dimensions
 
-damage = scrDeltaApply(damage,true);
+// apply delta to length and witdth increments
+var l = scrDeltaApply(lSpd,true);
+var w = scrDeltaApply(wSpd,true);
 
-posX = scrDeltaApply(posX,true);
-posY = scrDeltaApply(posY,true);
+// if resultant is less than limit, apply length increase
+if (length + l &lt; lengthLimit || lengthLimit == -1) {
+    length += l;
+}
 
-lSpd = scrDeltaApply(lSpd,true);
-wSpd = scrDeltaApply(wSpd,true);
+// if resultant is less than limit, apply width increase
+if (width + w &lt; widthLimit || widthLimit == -1) {
+    width += w;
+}
+
+// change unrotated beam dimensions
+var x2 = posX+scrDeltaApply(length,true);
+var y2 = posY+scrDeltaApply(width,true);
+
+// rotate beam
+var p1 = scrRotatePoint(dir,posX,posY);
+var p2 = scrRotatePoint(dir,x2,y2);
+
+// rotated first corner
+xOnePrime = p1[0];
+yOnePrime = p1[1];
+
+// rotated second corner
+xTwoPrime = p2[0];
+yTwoPrime = p2[1];
 </string>
           </argument>
         </arguments>
@@ -259,23 +196,13 @@ wSpd = scrDeltaApply(wSpd,true);
             <kind>1</kind>
             <string>/// draw beam
 
-// draw inside of beam
-
-// set color and alpha to beam inside settings
-draw_set_colour(colorInside);
 draw_set_alpha(alphaInside);
+draw_set_colour(colorInside);
+draw_rectangle(xOnePrime,yOnePrime,xTwoPrime,yTwoPrime,false);
 
-// draw box, not outline
-draw_rectangle(posX,posY,posX+length,posY+width,false);
-
-
-// draw beam edge
-
-// set color and alpha to beam edge settings
-draw_set_colour(colorEdge);
 draw_set_alpha(alphaEdge);
-
-// draw box outline
+draw_set_color(colorEdge);
+draw_rectangle(xOnePrime,yOnePrime,xTwoPrime,yTwoPrime,true);
 </string>
           </argument>
         </arguments>

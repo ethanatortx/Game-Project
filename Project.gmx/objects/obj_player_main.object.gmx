@@ -28,6 +28,7 @@
             <string>/// initialize values
 global.playerSpeed = scrDeltaApply(2, true);
 global.playerState = 'move';
+global.playerHealth = 100;
 
 global.moveModX = 1;
 global.moveModY = 1;
