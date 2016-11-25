@@ -87,7 +87,6 @@
       <object>objects\obj_message</object>
     </objects>
     <object>objects\delta_control</object>
-    <object>objects\obj_debug</object>
     <object>objects\damage_parent</object>
     <objects name="damage objects">
       <object>objects\obj_beamProjectile</object>
