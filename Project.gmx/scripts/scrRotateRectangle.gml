@@ -1,5 +1,6 @@
 /// scrRotateRectangle(angle,length,width)
 
+// assign input parameters to local variables for readability
 var dir = argument0;
 var length = argument1;
 var width = argument2;

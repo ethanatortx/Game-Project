@@ -60,6 +60,7 @@
     <script>scripts\scrArrToMap.gml</script>
     <script>scripts\scrRotatePoint.gml</script>
     <script>scripts\scrRotateRectangle.gml</script>
+    <script>scripts\scrPolygonCollision.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>

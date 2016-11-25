@@ -115,6 +115,8 @@ event_user(1);
           <argument>
             <kind>1</kind>
             <string>/// damage player
+
+
 </string>
           </argument>
         </arguments>
