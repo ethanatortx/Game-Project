@@ -155,7 +155,6 @@ if ((width + w &lt; widthLimit) || (widthLimit == -1)) {
 
 var pGrid = scrRotateRectangle(dir,length,width);
 
-
 for (o = 0; o &lt; ds_grid_height(pGrid); o++) {
     for (i = 0; i &lt; ds_grid_width(pGrid); i++) {
         switch (o) {
@@ -223,9 +222,11 @@ draw_text(30,30,floor(p4[1]));
             <kind>1</kind>
             <string>/// draw modified rectangle as triangle strip primitive
 
+// set counter for total amount of points
 var steps = 4;
 draw_primitive_begin(pr_trianglestrip);
 
+// add vertexes at point positions
 for (i = 0; i &lt; steps; i++) {
     switch (i) {
         case 0: draw_vertex_colour(posX+p1[0],posY+p1[1],colorInside,alphaInside); break;
@@ -235,6 +236,7 @@ for (i = 0; i &lt; steps; i++) {
     }
 }
 
+// end draw cycle and write to GPU
 draw_primitive_end();
 </string>
           </argument>
