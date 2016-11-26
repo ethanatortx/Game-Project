@@ -28,14 +28,14 @@
             <string>/// initialize variables
 
 // damage dealt per tick to player
-damage = 0;
+damage = 3;
 
 // position beam originates from (top left corner of beam)
 posX = 100; // x position
 posY = 100; // y position
 
 // angle of beam
-dir = 30;
+dir = 90;
 
 // dimensions of beam (-1 limit is unbounded)
 
@@ -56,12 +56,12 @@ wSpd = 0;
 // colours and alphas of beam
 
 // color of the inside of the projected beam
-colorInside = make_colour_rgb(180,0,0);
-alphaInside = .5; // alpha value of inside
+insideColour = make_colour_rgb(180,0,0);
+insideAlpha = .5; // alpha value of inside
 
 // color of the edge of the projected beam
-colorEdge = make_colour_rgb(220,0,0);
-alphaEdge = .8; // alpha value of edge of beam
+edgeColour = make_colour_rgb(220,0,0);
+edgeAlpha = .8; // alpha value of edge of beam
 edgeWidth = 5; // width of the bounding on the beam in pixels
 </string>
           </argument>
@@ -116,7 +116,13 @@ event_user(1);
             <kind>1</kind>
             <string>/// damage player
 
+var invAngle = -1*dir;
 
+transP = scrRotatePoint(invAngle, obj_player_main.x - posX, obj_player_main.y - posY);
+
+if (point_in_rectangle(transP[0],transP[1],0,0,length,width)) {
+    global.playerHealth -= scrDeltaApply(damage,true);
+}
 </string>
           </argument>
         </arguments>
@@ -155,20 +161,34 @@ if ((width + w &lt; widthLimit) || (widthLimit == -1)) {
     width += w;
 }
 
-var pGrid = scrRotateRectangle(dir,length,width);
+// create list for creating non-transformed points
+var pList = ds_list_create();
 
-for (o = 0; o &lt; ds_grid_height(pGrid); o++) {
-    for (i = 0; i &lt; ds_grid_width(pGrid); i++) {
-        switch (o) {
-            case 0: p1[i] = ds_grid_get(pGrid,i,o); break;
-            case 1: p2[i] = ds_grid_get(pGrid,i,o); break;
-            case 2: p3[i] = ds_grid_get(pGrid,i,o); break;
-            case 3: p4[i] = ds_grid_get(pGrid,i,o); break;
-        }
+// add variables to the thing
+for (i = 0; i &lt; 4; i++) {
+    switch (i) {
+        case 0: ds_list_insert(pList,i,0); ds_list_add(pList,0); break;
+        case 1: ds_list_insert(pList,i,length); ds_list_add(pList,0); break;
+        case 2: ds_list_insert(pList,i,length); ds_list_add(pList,width); break;
+        case 3: ds_list_insert(pList,i,0); ds_list_add(pList,width); break;
     }
 }
 
-ds_grid_destroy(pGrid);
+// transform rectangle
+var transformed = scrRotatePolygon(dir,pList);
+
+// take variables from the transformed thing
+for (i = 0; i &lt; 4; i++) {
+    switch (i) {
+        case 0: p1[0] = ds_list_find_value(transformed,i); p1[1] = ds_list_find_value(transformed,i+4); break;
+        case 1: p2[0] = ds_list_find_value(transformed,i); p2[1] = ds_list_find_value(transformed,i+4); break;
+        case 2: p3[0] = ds_list_find_value(transformed,i); p3[1] = ds_list_find_value(transformed,i+4); break;
+        case 3: p4[0] = ds_list_find_value(transformed,i); p4[1] = ds_list_find_value(transformed,i+4); break;
+    }
+}
+
+ds_list_destroy(pList);
+ds_list_destroy(transformed);
 </string>
           </argument>
         </arguments>
@@ -228,17 +248,62 @@ draw_text(30,30,floor(p4[1]));
 var steps = 4;
 draw_primitive_begin(pr_trianglestrip);
 
+draw_set_colour(insideColour);
+draw_set_alpha(insideAlpha);
+
 // add vertexes at point positions
 for (i = 0; i &lt; steps; i++) {
     switch (i) {
-        case 0: draw_vertex_colour(posX+p1[0],posY+p1[1],colorInside,alphaInside); break;
-        case 1: draw_vertex_colour(posX+p2[0],posY+p2[1],colorInside,alphaInside); break;
-        case 2: draw_vertex_colour(posX+p4[0],posY+p4[1],colorInside,alphaInside); break;
-        case 3: draw_vertex_colour(posX+p3[0],posY+p3[1],colorInside,alphaInside); break;
+        case 0: draw_vertex(posX+p1[0],posY+p1[1]); break;
+        case 1: draw_vertex(posX+p2[0],posY+p2[1]); break;
+        case 2: draw_vertex(posX+p4[0],posY+p4[1]); break;
+        case 3: draw_vertex(posX+p3[0],posY+p3[1]); break;
     }
 }
 
-// end draw cycle and write to GPU
+// end draw cycle and write inside
+draw_primitive_end();
+
+// begin draw for edges
+draw_primitive_begin(pr_trianglestrip);
+
+// drawing bounding box
+draw_set_colour(edgeColour)
+draw_set_alpha(edgeAlpha);
+for (o = 0; o &lt; 4; o++) {
+    for (k = 0; k &lt; 4; k++) {
+        if (o == 0) {
+            switch (k){
+                case 0: draw_vertex(posX+p1[0],posY+p1[1]);
+                case 1: draw_vertex(posX+p2[0],posY+p2[1]);
+                case 2: draw_vertex(posX+p1[0],posY+p1[1]-edgeWidth);
+                case 3: draw_vertex(posX+p2[0],posY+p2[1]-edgeWidth);
+            }
+        } /*else if (o == 1) {
+            switch (k){
+                case 0: draw_vertex(posX+p2[0],posY+p2[1]+edgeWidth);
+                case 1: draw_vertex(posX+p3[0],posY+p3[1]-edgeWidth);
+                case 2: draw_vertex(posX+p2[0]-edgeWidth,posY+p2[1]+edgeWidth);
+                case 3: draw_vertex(posX+p3[0]-edgeWidth,posY+p3[1]-edgeWidth);
+            }
+        } else if (o == 2) {
+            switch (k){
+                case 0: draw_vertex(posX+p4[0],posY+p4[1]-edgeWidth);
+                case 1: draw_vertex(posX+p3[0],posY+p3[1]-edgeWidth);
+                case 2: draw_vertex(posX+p4[0],posY+p4[1]);
+                case 3: draw_vertex(posX+p3[0],posY+p3[1]);
+            }
+        } else if (o == 3) {
+            switch (k){
+                case 0: draw_vertex(posX+p1[0],posY+p1[1]+edgeWidth);
+                case 1: draw_vertex(posX+p1[0]+edgeWidth,posY+p1[1]+edgeWidth);
+                case 2: draw_vertex(posX+p4[0],posY+p4[1]-edgeWidth);
+                case 3: draw_vertex(posX+p4[0]+edgeWidth,posY+p4[1]-edgeWidth);
+            }
+        }*/
+    }
+}
+
 draw_primitive_end();
 </string>
           </argument>
