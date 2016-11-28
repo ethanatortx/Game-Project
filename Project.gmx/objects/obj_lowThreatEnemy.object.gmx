@@ -99,18 +99,13 @@ event_inherited();
 playerX = obj_player_main.x;
 playerY = obj_player_main.y;
 
-var xDif = playerX-x;
-var yDif = playerY-y;
-
 // set initial vector between this object and palyer
-distToPlayer = sqrt(sqr(xDif)+sqr(yDif));
-angleWithPlayer = darctan(xDif/yDif);
-
-scrCorrectAnlge(xDif,yDif,angleWithPlayer);
+distToPlayer = sqrt(sqr(playerX - x)+sqr(playerY - y));
+angleWithPlayer = scrCorrectAngle(playerX,playerY,x,y);
 
 // calculate new speeds
-hspdMod = dcos(angleWithPlayer)*hspd;
-vspdMod = dsin(angleWithPlayer)*vspd;
+hspdMod = dsin(angleWithPlayer)*hspd;
+vspdMod = dcos(angleWithPlayer)*vspd;
 </string>
           </argument>
         </arguments>
