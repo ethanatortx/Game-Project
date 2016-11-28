@@ -92,6 +92,8 @@ event_user(0);
 
 // deal damage to player
 event_user(1);
+
+sound_play(snd_ping);
 </string>
           </argument>
         </arguments>
