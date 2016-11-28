@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// create detection matrix
-det = instance_create(0,0,obj_enemyDetecitionPolygon);
-
+det = instance_create(0,0,obj_enemyDetectionCircle);
+det.detRadius = 5;
+det.detDelay = 5;
 </string>
           </argument>
         </arguments>

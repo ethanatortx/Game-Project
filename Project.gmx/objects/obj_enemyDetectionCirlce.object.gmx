@@ -27,14 +27,13 @@
             <kind>1</kind>
             <string>/// initialize variables
 
-polyList = ds_list_create(); // list of points in format &lt;x1, x2, ..., y1, y2, ...&gt;
-detDelay = 0; // delay between player entering detection radius and reaction from enemy
-detCounter = detDelay; // set counter for later use
-activated = false; // whether or not enemy tracks, follows, and attacks player
+detRadius = 1; // detection radius
+detDelay = 1; // time in ticks until player is detected after standing in det radius :: constant
+detCouner = detDelay; // iterable counter
+activated = false; // bool of if this instance is actively chasing player or not
 
-// speeds of the enemy
-hspd = 0; // horizontal
-vspd = 0; // vertical
+playerX = obj_player_main.x;
+playerY = obj_player_main.y;
 </string>
           </argument>
         </arguments>
@@ -57,46 +56,16 @@ vspd = 0; // vertical
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// calculate collision
+            <string>/// check player collision with circle
 
-// check player collision
-event_user(0);
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// check for player within polygon
-
-var playerX, playerY;
-playerX = obj_player_main.x;
-playerY = obj_player_main.y;
-
-if (scrPointInPolygon(playerX, playerY, polyList)) {
+if (point_in_circle(playerX,playerY,x,y,detRadius)) {
     if (detCounter &gt; 0) {
-        detCounter -= scrDeltaApply(1,true);
+        detCounter -= global.delta;
     } else {
         activated = true;
-        ds_list_destroy(polyList);
     }
+} else {
+    detCounter = detDelay;
 }
 </string>
           </argument>
