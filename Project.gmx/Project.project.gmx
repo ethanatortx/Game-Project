@@ -70,6 +70,7 @@
     <font>fonts\fnt_comicSans</font>
   </fonts>
   <objects name="objects">
+    <object>objects\damage_parent</object>
     <objects name="inanimate objects">
       <object>objects\obj_deadTree</object>
     </objects>
@@ -88,9 +89,15 @@
       <object>objects\obj_message</object>
     </objects>
     <object>objects\delta_control</object>
-    <object>objects\damage_parent</object>
     <objects name="damage objects">
       <object>objects\obj_beamProjectile</object>
+    </objects>
+    <objects name="enemy ai">
+      <object>objects\obj_enemyDetectionCircle</object>
+      <object>objects\obj_enemyDetecitionPolygon</object>
+    </objects>
+    <objects name="enemies">
+      <object>objects\obj_weeny</object>
     </objects>
   </objects>
   <rooms name="rooms">

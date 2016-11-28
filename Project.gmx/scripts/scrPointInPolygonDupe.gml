@@ -1,8 +1,7 @@
-/// scrPointInPolygon(x, y, polygonList)
+/// scrPointInPolygonDupe(x, y, polygonList)
 
 
 var posX, posY, pList, bit;
-bit = false;
 
 // assign input parameters to local variables
 posX = argument0;
@@ -30,8 +29,8 @@ for (o = 0; o < s; o++) {
     x1 = xArr[o];
     y1 = yArr[o];
     
-    x2 = xArr[o+1];
-    y2 = yArr[o+1];
+    x2 = xArr[i+1];
+    y2 = yArr[i+1];
     
     // collision checking
     if ((y2 > posY) ^ (y1 > posY)) {

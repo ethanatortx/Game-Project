@@ -118,12 +118,15 @@ sound_play(snd_ping);
             <kind>1</kind>
             <string>/// damage player
 
+// get the inverse angle to transform player position for collision checking
 var invAngle = -1*dir;
 
+// transform player position based upon inverse angle
 transP = scrRotatePoint(invAngle, obj_player_main.x - posX, obj_player_main.y - posY);
 
+// collision checking with non-transformed rectangle
 if (point_in_rectangle(transP[0],transP[1],0,0,length,width)) {
-    global.playerHealth -= scrDeltaApply(damage,true);
+    global.playerHealth -= scrDeltaApply(damage,true); // deduct delta applied damage from player health
 }
 </string>
           </argument>
