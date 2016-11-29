@@ -26,6 +26,7 @@
     <sprite>sprites\spr_AOE</sprite>
     <sprite>sprites\test_sprite_default</sprite>
     <sprite>sprites\spr_lowThreatEnemy</sprite>
+    <sprite>sprites\spr_rock</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
@@ -63,6 +64,7 @@
     <script>scripts\scrRotatePolygon.gml</script>
     <script>scripts\scrPointInPolygon.gml</script>
     <script>scripts\scrCorrectAngle.gml</script>
+    <script>scripts\scrPredictCourse.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
@@ -93,6 +95,7 @@
     <object>objects\delta_control</object>
     <objects name="damage objects">
       <object>objects\obj_beamProjectile</object>
+      <object>objects\obj_ballProjectile</object>
     </objects>
     <objects name="enemy ai">
       <object>objects\obj_enemyDetectionPolygon</object>
@@ -101,8 +104,12 @@
     <objects name="enemies">
       <object>objects\obj_lowThreatEnemy</object>
     </objects>
+    <objects name="physics objects">
+      <object>objects\obj_rockPhysics</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_testPhysicsObjects</room>
     <room>rooms\rm_initial</room>
     <room>rooms\rm_testing</room>
     <room>rooms\rm_environ2</room>
