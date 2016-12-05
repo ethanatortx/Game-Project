@@ -30,8 +30,8 @@
 // calibrate detection variables
 // constants
 detRadius = 50;
-detDelay = 5;
-attackRadius = 20;
+detDelay = 20;
+attackRadius = 50;
 attackDelay = 5;
 
 
@@ -44,7 +44,7 @@ attacking = false;
 // attacking constants
 
 swingOffset = 0;
-swingRange = 20;
+swingRange = 50;
 swingSpeed = 1;
 swingArcMax = .3 // percentage of swing circumference (0 -&gt; 1)
 swingArcMax *= pi*2*swingRange;
@@ -52,6 +52,8 @@ swingDamage = 5;
 
 // attacking modifiables
 swingArc = 0;
+angleSnapshot = 0;
+within = false;
 
 // calibrate variables for detecting player and attacking them
 playerX = objPlayerMain.x;
@@ -65,8 +67,8 @@ distToPlayer = sqrt(sqr(xDif)+sqr(yDif));
 angleWithPlayer = darctan(xDif/yDif);
 
 // speed constants
-hspd = scrDeltaApply(1,true);
-vspd = scrDeltaApply(1,true);
+hspd = scrDeltaApply(.2,true);
+vspd = scrDeltaApply(.2,true);
 
 draw = false;
 
@@ -194,6 +196,8 @@ if (activated) {
     if (!attacking) {
         if (attackCounter &lt;= 0) {    
             attacking = true;
+            angleSnapshot = angleWithPlayer
+            attackCounter = attackDelay;
         } else if (point_in_circle(playerX,playerY,x,y,attackRadius)) {
             attackCounter -= global.delta;
         } else {
@@ -230,17 +234,20 @@ swingSpeed *= global.delta;
 if (swingArc &lt; swingArcMax) {
     
     swingArc += swingSpeed;
-    var temp = scrAttackSwing(x,y,playerX,playerY,swingOffset+angleWithPlayer,swingArc,swingRange);
-    list = temp[1];
-    var within = temp[0];
+    within = scrAttackSwing(x,y,playerX,playerY,swingOffset+angleSnapshot,swingArc,swingRange);
     draw = true;
+
+} else {
+    attacking = false;
+    swingArc = 0;
 }
+
 swingSpeed /= global.delta;
 
-/*if (within) {
+if (within) {
     global.playerHealth -= swingDamage;
     attacking = false;
-}*/
+}
 </string>
           </argument>
         </arguments>
@@ -269,6 +276,8 @@ draw_text(0,0,angleWithPlayer);
 draw_text(0,20,distToPlayer);
 draw_text(0,40,activated);
 draw_text(0,60,detCounter);
+draw_text(0,80,global.playerHealth);
+draw_text(0,100,within);
 </string>
           </argument>
         </arguments>
@@ -324,12 +333,19 @@ draw_circle_colour(x,y,attackRadius,make_colour_rgb(0,255,0),make_colour_rgb(0,2
 
 if (draw) {
     if (attacking) {
-        draw_primitive_begin(pr_trianglestrip);
-        for (i = 0; i &lt; ds_list_size(list)/2; i++) {
-            draw_vertex(ds_list_find_value(list,i),ds_list_find_value(list,i+ds_list_size(list)/2));
+        if (ds_exists(list,ds_type_list)) {
+            draw_primitive_begin(pr_trianglestrip);
+            for (i = 0; i &lt; ds_list_size(list)/2; i++) {
+                switch (i) {
+                    case 0: draw_vertex(ds_list_find_value(list,0),ds_list_find_value(list,0+ds_list_size(list)/2));
+                    case 1: draw_vertex(ds_list_find_value(list,1),ds_list_find_value(list,1+ds_list_size(list)/2));
+                    case 2: draw_vertex(ds_list_find_value(list,3),ds_list_find_value(list,3+ds_list_size(list)/2));
+                    case 3: draw_vertex(ds_list_find_value(list,2),ds_list_find_value(list,2+ds_list_size(list)/2));
+                }
+            }
+            draw_primitive_end();
+            ds_list_destroy(list);
         }
-        draw_primitive_end();
-        ds_list_destroy(list);
     }
 }
 </string>

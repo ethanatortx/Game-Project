@@ -11,13 +11,14 @@ px = argument2;
 py = argument3;
 
 // angle offset for hit detection
-a = argument4%90;
-
-// range of attack
-range = argument5;
+a = argument4;
 
 // length of swing arc
-arcl = argument6;
+arcl = argument5;
+
+// range of attack
+range = argument6;
+
 arca = radtodeg(arcl/range);
 
 var temp;
@@ -36,12 +37,8 @@ for (i = 0; i < 4; i++) {
 
 if (scrPointInPolygon(px,py,list)) {
     //ds_list_destroy(list);
-    temp[0] = true;
+    return true;
 } else {
     //ds_list_destroy(list);
-    temp[0] = false;
+    return false;
 }
-
-temp[1] = list;
-
-return temp;
