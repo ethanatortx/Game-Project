@@ -9,6 +9,10 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="main character">
+      <sprite>sprites\spr_main_up_real</sprite>
+      <sprite>sprites\spr_main_down_real</sprite>
+      <sprite>sprites\spr_main_left_real</sprite>
+      <sprite>sprites\spr_main_right_real</sprite>
       <sprite>sprites\spr_main_up</sprite>
       <sprite>sprites\spr_main_down</sprite>
       <sprite>sprites\spr_main_left</sprite>
@@ -69,6 +73,8 @@
     <script>scripts\scrPointInPolygon.gml</script>
     <script>scripts\scrCorrectAngle.gml</script>
     <script>scripts\scrPredictCourse.gml</script>
+    <script>scripts\script20.gml</script>
+    <script>scripts\scrAttackSwing.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
@@ -83,7 +89,7 @@
       <object>objects\obj_deadTree</object>
     </objects>
     <objects name="player">
-      <object>objects\obj_player_main</object>
+      <object>objects\objPlayerMain</object>
       <object>objects\player_parent</object>
     </objects>
     <objects name="shaders">

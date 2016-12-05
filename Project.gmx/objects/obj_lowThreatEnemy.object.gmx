@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemyDetectionCirlce</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,11 +27,37 @@
             <kind>1</kind>
             <string>/// create detection box
 
-event_inherited(); // call instantiation of variables from collision object
+// calibrate detection variables
+// constants
+detRadius = 50;
+detDelay = 20;
+attackRadius = 50;
+attackDelay = 5;
 
-// calibrate variables from parent object (detection radius and detection delay)
-detRadius = 0;
-detDelay = 0;
+
+// modifiables
+detCounter = detDelay;
+attackCounter = attackDelay;
+activated = false;
+attacking = false;
+
+// attacking constants
+
+swingOffset = 0;
+swingRange = 50;
+swingSpeed = 1;
+swingArcMax = .3 // percentage of swing circumference (0 -&gt; 1)
+swingArcMax *= pi*2*swingRange;
+swingDamage = 5;
+
+// attacking modifiables
+swingArc = 0;
+angleSnapshot = 0;
+within = false;
+
+// calibrate variables for detecting player and attacking them
+playerX = objPlayerMain.x;
+playerY = objPlayerMain.y;
 
 var xDif = playerX-x;
 var yDif = playerY-y;
@@ -41,8 +67,10 @@ distToPlayer = sqrt(sqr(xDif)+sqr(yDif));
 angleWithPlayer = darctan(xDif/yDif);
 
 // speed constants
-hspd = 0;
-vspd = 0;
+hspd = scrDeltaApply(.2,true);
+vspd = scrDeltaApply(.2,true);
+
+draw = false;
 
 
 </string>
@@ -67,9 +95,21 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// call parent object (detection)
+            <string>/// check detection
 
-event_inherited();
+// check if already activated
+if (!activated) {
+    // check collision of player with detection radius
+    if (detCounter &lt;= 0) { // check if countdown has reached zero yet in order to activate enemy
+        activated = true; 
+    } else if (point_in_circle(playerX,playerY,x,y,detRadius)) {
+        // iterate down the counter until player is detected
+        detCounter -= global.delta;
+    } else {
+        // reset counter if player goes outside collision detecter
+        detCounter = detDelay;
+    }
+}
 
 </string>
           </argument>
@@ -94,11 +134,14 @@ event_inherited();
             <string>/// update vector to player
 
 // update player poisition
-playerX = obj_player_main.x;
-playerY = obj_player_main.y;
+playerX = objPlayerMain.x;
+playerY = objPlayerMain.y;
+
+var xDif = playerX-x;
+var yDif = playerY-y;
 
 // set initial vector between this object and palyer
-distToPlayer = sqrt(sqr(playerX - x)+sqr(playerY - y));
+distToPlayer = sqrt(sqr(xDif)+sqr(yDif));
 angleWithPlayer = scrCorrectAngle(x,y,playerX,playerY);
 
 
@@ -127,6 +170,183 @@ angleWithPlayer = scrCorrectAngle(x,y,playerX,playerY);
 if (activated) {
     direction = angleWithPlayer;
     speed = sqrt(sqr(hspd)+sqr(vspd));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// check whether player is within attack trigger radius
+if (activated) {
+    if (!attacking) {
+        if (attackCounter &lt;= 0) {    
+            attacking = true;
+            angleSnapshot = angleWithPlayer
+            attackCounter = attackDelay;
+        } else if (point_in_circle(playerX,playerY,x,y,attackRadius)) {
+            attackCounter -= global.delta;
+        } else {
+            attackCounter = attackDelay;
+        }
+    } else if (attacking) {
+        event_user(0);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// calculate swing attack and check whether player is within swing radius
+swingSpeed *= global.delta;
+if (swingArc &lt; swingArcMax) {
+    
+    swingArc += swingSpeed;
+    within = scrAttackSwing(x,y,playerX,playerY,swingOffset+angleSnapshot,swingArc,swingRange);
+    draw = true;
+
+} else {
+    attacking = false;
+    swingArc = 0;
+}
+
+swingSpeed /= global.delta;
+
+if (within) {
+    global.playerHealth -= swingDamage;
+    attacking = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug
+
+draw_text(0,0,angleWithPlayer);
+draw_text(0,20,distToPlayer);
+draw_text(0,40,activated);
+draw_text(0,60,detCounter);
+draw_text(0,80,global.playerHealth);
+draw_text(0,100,within);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw debug radius stuff
+
+// draw detection radius
+draw_circle_colour(x,y,detRadius,make_colour_rgb(255,0,0),make_colour_rgb(255,0,0),true);
+
+// draw attack trigger radius
+draw_circle_colour(x,y,attackRadius,make_colour_rgb(0,255,0),make_colour_rgb(0,255,0),true);
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+
+if (draw) {
+    if (attacking) {
+        if (ds_exists(list,ds_type_list)) {
+            draw_primitive_begin(pr_trianglestrip);
+            for (i = 0; i &lt; ds_list_size(list)/2; i++) {
+                switch (i) {
+                    case 0: draw_vertex(ds_list_find_value(list,0),ds_list_find_value(list,0+ds_list_size(list)/2));
+                    case 1: draw_vertex(ds_list_find_value(list,1),ds_list_find_value(list,1+ds_list_size(list)/2));
+                    case 2: draw_vertex(ds_list_find_value(list,3),ds_list_find_value(list,3+ds_list_size(list)/2));
+                    case 3: draw_vertex(ds_list_find_value(list,2),ds_list_find_value(list,2+ds_list_size(list)/2));
+                }
+            }
+            draw_primitive_end();
+            ds_list_destroy(list);
+        }
+    }
 }
 </string>
           </argument>
