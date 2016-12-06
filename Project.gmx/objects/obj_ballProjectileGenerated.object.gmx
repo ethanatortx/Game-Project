@@ -69,7 +69,7 @@ dmg = 1;
             <string>/// check for collision with player
 
 // check collision with circle
-if (collision_circle(x,y,r,obj_player_main,false,true)) {
+if (collision_circle(x,y,r,objPlayerMain,false,true)) {
     // deal damage to player
     global.playerHealth -= scrDeltaApply(dmg,true);
 }

@@ -54,6 +54,7 @@ swingDamage = 5;
 swingArc = 0;
 angleSnapshot = 0;
 within = false;
+list = 0;
 
 // calibrate variables for detecting player and attacking them
 playerX = objPlayerMain.x;
@@ -278,6 +279,12 @@ draw_text(0,40,activated);
 draw_text(0,60,detCounter);
 draw_text(0,80,global.playerHealth);
 draw_text(0,100,within);
+if (draw) {
+    if (ds_exists(list,ds_type_list)) {
+        draw_text(40,100,scrPointInPolygon(playerX,playerY,list));
+    }
+}
+
 </string>
           </argument>
         </arguments>
