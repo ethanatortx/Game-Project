@@ -12,6 +12,7 @@ ydif = py-cy;
 var sx, sy, quadrant, angle;
 sx = sign(xdif);
 sy = sign(ydif);
+quadrant = 0;
 
 if (xdif > 0 and ydif <= 0) { // top right
     quadrant = 0;
@@ -25,11 +26,17 @@ if (xdif > 0 and ydif <= 0) { // top right
 
 switch (quadrant) {
     case 0:
+        angle = darctan( (sy*ydif) / (sx*xdif) );
+        angle += 90*quadrant;
+        break;
     case 2:
         angle = darctan( (sy*ydif) / (sx*xdif) );
         angle += 90*quadrant;
         break;
     case 1:
+        angle = darctan( (sx*xdif) / (sy*ydif) );
+        angle += 90*quadrant;
+        break;
     case 3:
         angle = darctan( (sx*xdif) / (sy*ydif) );
         angle += 90*quadrant;

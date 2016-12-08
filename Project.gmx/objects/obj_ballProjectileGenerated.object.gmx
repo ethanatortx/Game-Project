@@ -30,11 +30,20 @@
 // angle of travel
 dir = 0;
 
+// object properties
 // speed of object
-spd = 0;
+spd = 1;
+// radius
+r = 5;
+// inside colour and alpha
+insColour = make_colour_rgb(255,255,255);
+insAlpha = 1;
+// outside colour and alpha
+outColour = make_colour_rgb(0,0,0);
+outAlpha = 1;
 
 // damage of object
-dmg = 0;
+dmg = 1;
 </string>
           </argument>
         </arguments>
@@ -60,10 +69,91 @@ dmg = 0;
             <string>/// check for collision with player
 
 // check collision with circle
-if (collision_circle(x,y,detRadius,obj_player_main,false,true)) {
+if (collision_circle(x,y,r,objPlayerMain,false,true)) {
     // deal damage to player
-    global.playerHealth -= scrDeltaApply(damage,true);
+    global.playerHealth -= scrDeltaApply(dmg,true);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// set speed and direction
+speed = scrDeltaApply(spd,true);
+direction = dir;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug
+
+draw_text(0,0,global.playerHealth);
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw circle
+
+draw_set_colour(insColour);
+draw_set_alpha(insAlpha);
+draw_circle(x,y,r,false);
+
+draw_set_colour(outColour);
+draw_set_alpha(outAlpha);
+draw_circle(x,y,r,true);
 </string>
           </argument>
         </arguments>
