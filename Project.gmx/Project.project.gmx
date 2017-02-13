@@ -69,11 +69,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing_environments</room>
-<<<<<<< HEAD
     <room>rooms\MainEvironment</room>
-=======
     <room>rooms\room1</room>
->>>>>>> refs/remotes/origin/texture-work
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
