@@ -4,41 +4,42 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_ping</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="main character">
-      <sprites name="weapons">
-        <sprite>sprites\spr_sword</sprite>
-      </sprites>
-      <sprite>sprites\spr_main_shadow</sprite>
+      <sprite>sprites\spr_main_up_real</sprite>
+      <sprite>sprites\spr_main_down_real</sprite>
+      <sprite>sprites\spr_main_left_real</sprite>
+      <sprite>sprites\spr_main_right_real</sprite>
       <sprite>sprites\spr_main_up</sprite>
-      <sprite>sprites\spr_main_up_still</sprite>
-      <sprite>sprites\spr_main_up_walking</sprite>
       <sprite>sprites\spr_main_down</sprite>
-      <sprite>sprites\spr_main_down_still</sprite>
-      <sprite>sprites\spr_main_down_walking</sprite>
       <sprite>sprites\spr_main_left</sprite>
-      <sprite>sprites\spr_main_left_still</sprite>
-      <sprite>sprites\spr_main_left_walking</sprite>
       <sprite>sprites\spr_main_right</sprite>
-      <sprite>sprites\spr_main_right_still</sprite>
-      <sprite>sprites\spr_main_right_walking</sprite>
-      <sprite>sprites\spr_getting_up</sprite>
     </sprites>
     <sprites name="objects">
       <sprite>sprites\spr_campfire</sprite>
       <sprite>sprites\spr_treestump</sprite>
       <sprite>sprites\spr_securedoor</sprite>
       <sprite>sprites\spr_terminal</sprite>
+      <sprite>sprites\spr_pentagram</sprite>
+      <sprite>sprites\obj_goldenmonkey</sprite>
+      <sprite>sprites\spr_deadTree</sprite>
+    </sprites>
+    <sprite>sprites\spr_AOE</sprite>
+    <sprite>sprites\test_sprite_default</sprite>
+    <sprite>sprites\spr_lowThreatEnemy</sprite>
+    <sprite>sprites\spr_rock</sprite>
+    <sprite>sprites\spr_ballProjectile</sprite>
+    <sprites name="enemies">
+      <sprite>sprites\sprBigBoy</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
-    <background>background\bg_dirt</background>
     <background>background\bg_grass</background>
-    <background>background\bg_monolith</background>
-    <background>background\bg_future_tileset</background>
-    <background>background\bg_water</background>
+    <background>background\bg_rocks</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -46,31 +47,90 @@
       <script>scripts\cfg_defaultbinds.gml</script>
     </scripts>
     <scripts name="player movement">
-      <script>scripts\scr_move.gml</script>
-      <script>scripts\scr_player_getup.gml</script>
+      <scripts name="legacy movement">
+        <script>scripts\scr_player_getup.gml</script>
+        <script>scripts\scr_move.gml</script>
+      </scripts>
+      <script>scripts\scrMoveGamepad.gml</script>
+      <script>scripts\scrMoveKeyboard.gml</script>
     </scripts>
     <scripts name="player interaction">
-      <script>scripts\scr_player_interact.gml</script>
-      <script>scripts\scr_player_is_facing.gml</script>
+      <script>scripts\scr_playerTriggerDialog.gml</script>
     </scripts>
+    <scripts name="delta timescale">
+      <script>scripts\scrDeltaApply.gml</script>
+      <script>scripts\scrDeltaApplyBasic.gml</script>
+      <script>scripts\scrDeltaCheck.gml</script>
+      <script>scripts\scrDeltaClockCreate.gml</script>
+      <script>scripts\scrDeltaClockSet.gml</script>
+      <script>scripts\scrDeltaClockStep.gml</script>
+      <script>scripts\scrDeltaRevert.gml</script>
+      <script>scripts\scrDeltaRevertBasic.gml</script>
+    </scripts>
+    <script>scripts\scrArrToMap.gml</script>
+    <script>scripts\scrRotatePoint.gml</script>
+    <script>scripts\scrRotatePolygon.gml</script>
+    <script>scripts\scrPointInPolygon.gml</script>
+    <script>scripts\scrCorrectAngle.gml</script>
+    <script>scripts\scrPredictCourse.gml</script>
+    <script>scripts\script20.gml</script>
+    <script>scripts\scrAttackSwing.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shd_blackWhite.shader</shader>
+    <shader type="GLSLES">shaders\shd_darken.shader</shader>
+  </shaders>
+  <fonts name="fonts">
+    <font>fonts\fnt_comicSans</font>
+  </fonts>
   <objects name="objects">
+    <object>objects\damage_parent</object>
+    <objects name="inanimate objects">
+      <object>objects\obj_deadTree</object>
+    </objects>
     <objects name="player">
-      <object>objects\obj_player_main</object>
+      <object>objects\objPlayerMain</object>
+      <object>objects\player_parent</object>
+    </objects>
+    <objects name="shaders">
+      <object>objects\obj_blackwhite</object>
+      <object>objects\obj_darken</object>
+    </objects>
+    <objects name="effects">
+      <object>objects\fx_smoke</object>
     </objects>
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
-      <object>objects\fx_smoke</object>
+      <object>objects\obj_message</object>
     </objects>
-    <object>objects\obj_campfire</object>
-    <object>objects\obj_treestump</object>
-    <object>objects\obj_securedoor</object>
-    <object>objects\obj_terminal</object>
+    <object>objects\delta_control</object>
+    <objects name="damage objects">
+      <object>objects\obj_beamProjectileGenerated</object>
+      <object>objects\obj_ballProjectileGenerated</object>
+      <object>objects\obj_ballProjectileSprite</object>
+    </objects>
+    <objects name="enemy ai">
+      <object>objects\obj_enemyDetectionPolygon</object>
+      <object>objects\obj_enemyDetectionCirlce</object>
+    </objects>
+    <objects name="enemies">
+      <object>objects\obj_lowThreatEnemy</object>
+    </objects>
+    <objects name="physics objects">
+      <object>objects\obj_rockPhysics</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initial</room>
+    <room>rooms\rm_testPhysicsObjects</room>
+    <room>rooms\rm_testing</room>
+    <room>rooms\rm_environ2</room>
     <room>rooms\rm_testing_environments</room>
+<<<<<<< HEAD
     <room>rooms\MainEvironment</room>
     <room>rooms\room1</room>
+=======
+>>>>>>> 974d379245830e01f3de7a44a287c1457b8fee12
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
