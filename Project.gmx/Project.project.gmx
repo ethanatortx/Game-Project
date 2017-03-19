@@ -35,6 +35,7 @@
     <sprites name="enemies">
       <sprite>sprites\sprBigBoy</sprite>
     </sprites>
+    <sprite>sprites\spr_spirittank</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concrete</background>
