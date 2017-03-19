@@ -127,6 +127,11 @@
     <room>rooms\rm_testing</room>
     <room>rooms\rm_environ2</room>
     <room>rooms\rm_testing_environments</room>
+<<<<<<< HEAD
+    <room>rooms\MainEvironment</room>
+    <room>rooms\room1</room>
+=======
+>>>>>>> 974d379245830e01f3de7a44a287c1457b8fee12
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
