@@ -122,7 +122,6 @@
       <object>objects\obj_rockPhysics</object>
     </objects>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_initial</room>
     <room>rooms\rm_testPhysicsObjects</room>

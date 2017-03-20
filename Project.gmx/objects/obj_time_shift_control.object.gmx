@@ -55,6 +55,9 @@ cooldown = 3;
 on_cooldown = false;
 // whether or not ability is active
 is_active = false;
+
+// temp health
+t_health = 0;
 </string>
           </argument>
         </arguments>
@@ -78,7 +81,7 @@ is_active = false;
           <argument>
             <kind>1</kind>
             <string>/// delete time skip list object
-ds_list_destroy(time_skip_list);
+ds_stack_destroy(time_skip_stack);
 </string>
           </argument>
         </arguments>
@@ -105,7 +108,7 @@ ds_list_destroy(time_skip_list);
 if(current_tick++ &gt;= (room_speed/snapshot_frequency))
 {
     current_tick = 0;
-    scrUpdateTimeStack(time_skip_grid, time_shift_duration, snapshot_frequency, global.playerPositionX, global.playerPositionY, global.playerHealth);
+    scrUpdateTimeStack(time_skip_stack, time_shift_duration, snapshot_frequency, global.playerPositionX, global.playerPositionY, global.playerHealth);
 }
 </string>
           </argument>
@@ -196,7 +199,22 @@ if(cooldown &lt;= 0)
           <argument>
             <kind>1</kind>
             <string>/// skip back in time
-
+var nx, ny, nh;
+if(ds_stack_size(time_skip_stack) &gt; 0)
+{
+    nx = ds_stack_pop(time_skip_stack);
+    ny = ds_stack_pop(time_skip_stack);
+    nh = ds_stack_pop(time_skip_stack);
+    if(nh &gt; t_health) t_health = nh;
+    obj_player_main.x = nx;
+    obj_player_main.y = ny;
+}
+else
+{
+    is_active = false;
+    global.playerHealth = t_health;
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

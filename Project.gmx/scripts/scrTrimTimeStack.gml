@@ -7,4 +7,5 @@ var stack_len = ds_stack_size(stackid);
 while(stack_len % arg_count != 0)
 {
     ds_stack_pop(stackid);
+    stack_len = ds_stack_size(stackid);
 }
