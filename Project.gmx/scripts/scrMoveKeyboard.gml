@@ -17,6 +17,9 @@ var dkey = keyboard_check(keyList[3]);
 var haxis = 0;
 var vaxis = 0;
 
+var hactual = 0;
+var vactual = 0;
+
 if (lkey and !rkey) {
     haxis = -1;
 } else if (!lkey and rkey) {
@@ -33,70 +36,50 @@ if (ukey and !dkey) {
     vaxis = 0;
 }
 
-var angle;
-var relativeSpd;
-
-if (haxis == 0 && vaxis == 0) { // no input
-    spr = sprite_index;
-    angle = direction;
-    relativeSpd = 0;
-}
-
-if (haxis == 1 && vaxis == 0) { // straight right
-    spr = spr_main_right;
-    relativeSpd = hspd;
-    angle = 0;
-}
-
-if (haxis == 1 && vaxis == -1) { // right and up diagonal
-    spr = spr_main_up;
-    relativeSpd = sqrt(sqr(hspd) + sqr(vspd));
-    angle = 45;
-}
-
-if (haxis == 0 && vaxis == -1) { // straight up
-    spr = spr_main_up;
-    relativeSpd = vspd;
-    angle = 90;
-}
-
-if (haxis == -1 && vaxis == -1) { // left and up diagonal
-    spr = spr_main_up;
-    relativeSpd = sqrt(sqr(hspd) + sqr(vspd));
-    angle = 135;
-}
-
-if (haxis == -1 && vaxis == 0) { // straight left
-    spr = spr_main_left;
-    relativeSpd = hspd;
-    angle = 180;
-}
-
-if (haxis == -1 && vaxis == 1) { // bottom and left diagonal
-    spr = spr_main_down;
-    relativeSpd = sqrt(sqr(hspd) + sqr(vspd));
-    angle = 225;
-}
-
-if (haxis == 0 && vaxis == 1) { // straight down
-    spr = spr_main_down;
-    relativeSpd = vspd;
-    angle = 270;
-}
-
-if (haxis == 1 && vaxis == 1) { // down and right diagonal
-    spr = spr_main_down;
-    relativeSpd = sqrt(sqr(hspd) + sqr(vspd));
-    angle = 315;
-}
-if (relativeSpd > 0)
+if(haxis != 0 || vaxis != 0)
 {
-    global.playerState = 2;
+    hactual = hspd*haxis;
+    vactual = vspd*vaxis;
+    
+    // down and right -- right
+    if(haxis == 1 && vaxis == 1)
+    {
+        spr = global.playerSprArr[3];
+    }
+    // right -- right
+    if(haxis == 1 && vaxis == 0)
+    {
+        spr = global.playerSprArr[3];
+    }
+    // up and right -- right
+    if(haxis == 1 && vaxis == -1)
+    {
+        spr = global.playerSprArr[3];
+    }
+    // down -- down
+    if(haxis == 0 && vaxis == 1)
+    {
+        spr = global.playerSprArr[0];
+    }
+    // up -- up
+    if(haxis == 0 && vaxis == -1)
+    {
+        spr = global.playerSprArr[1];
+    }
+    // down and left -- left
+    if(haxis == -1 && vaxis == 1)
+    {
+        spr = global.playerSprArr[2];
+    }
+    // left -- left
+    if(haxis == -1 && vaxis == 0)
+    {
+        spr = global.playerSprArr[2];
+    }
+    if(haxis == -1 && vaxis == -1)
+    {
+    }
 }
-else
-{
-    global.playerState = 1;
-}
-direction = angle;
-speed = relativeSpd;
+
+scrIncrementGlobalPlayerPos(hactual, vactual);
 sprite_index = spr;

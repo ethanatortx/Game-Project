@@ -78,7 +78,7 @@ instance_create(0,0,obj_time_shift_control);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -96,8 +96,7 @@ instance_create(0,0,obj_time_shift_control);
           <argument>
             <kind>1</kind>
             <string>/// update global player position
-global.playerPositionX = x;
-global.playerPositionY = y;
+scrUpdatePlayerPosFromGlobal();
 </string>
           </argument>
         </arguments>
@@ -151,26 +150,6 @@ if (global.playerState &gt;= 1) {
             <string>/// set dynamic depth
 depth = -y; // makes its depth be lower than that of the ones infront of it
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>

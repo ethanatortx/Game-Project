@@ -18,6 +18,4 @@ while(stack_len >= (max_index))
     stack_len = ds_stack_size(stackid);
 }
 
-scrTrimTimeStack(stackid, arg_push_const);
-
 ds_stack_push(stackid, px, py, ph);

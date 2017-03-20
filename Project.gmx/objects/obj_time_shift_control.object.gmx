@@ -38,16 +38,18 @@
 // for now Im going to set frequency low and duration
 // high for testing
 time_shift_duration = 3;
-snapshot_frequency = 1;
+snapshot_frequency = 15;
 
 // quantity of snapshots (precision of recall)
 snapshot_count = time_shift_duration * snapshot_frequency;
 
 // grid used to hold snap data
-time_skip_stack = ds_stack_create();
+time_shift_stack = ds_stack_create();
 
 // time tracking
 current_tick = 0;
+// duration of shift back
+shift_back_duration = 2;
 
 // cooldown time in seconds
 cooldown = 3;
@@ -81,7 +83,7 @@ t_health = 0;
           <argument>
             <kind>1</kind>
             <string>/// delete time skip list object
-ds_stack_destroy(time_skip_stack);
+ds_stack_destroy(time_shift_stack);
 </string>
           </argument>
         </arguments>
@@ -104,40 +106,13 @@ ds_stack_destroy(time_skip_stack);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// check for frequency
-if(current_tick++ &gt;= (room_speed/snapshot_frequency))
-{
-    current_tick = 0;
-    scrUpdateTimeStack(time_skip_stack, time_shift_duration, snapshot_frequency, global.playerPositionX, global.playerPositionY, global.playerHealth);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// trigger time skip if player presses time skip key
 
 if((keyboard_check(ord("e")) || keyboard_check(ord("E"))) &amp;&amp; (on_cooldown != true))
 {
     is_active = true;
     on_cooldown = true;
+    time_shift_frequency = time_shift_duration / ds_stack_size(time_shift_stack)/3 * room_speed;
 }
 
 if(is_active)
@@ -148,6 +123,36 @@ if(is_active)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_time_shift_control</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// check for frequency
+if(!is_active){
+    if(current_tick++ &gt;= (room_speed/snapshot_frequency))
+    {
+        current_tick = 0;
+        scrUpdateTimeStack(time_shift_stack, time_shift_duration, snapshot_frequency, global.playerPositionX, global.playerPositionY, global.playerHealth);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -200,14 +205,22 @@ if(cooldown &lt;= 0)
             <kind>1</kind>
             <string>/// skip back in time
 var nx, ny, nh;
-if(ds_stack_size(time_skip_stack) &gt; 0)
+if(ds_stack_size(time_shift_stack) &gt; 0)
 {
-    nx = ds_stack_pop(time_skip_stack);
-    ny = ds_stack_pop(time_skip_stack);
-    nh = ds_stack_pop(time_skip_stack);
-    if(nh &gt; t_health) t_health = nh;
-    obj_player_main.x = nx;
-    obj_player_main.y = ny;
+    if(current_tick &gt;= time_shift_frequency)
+    {
+        current_tick = 0;
+        nx = ds_stack_pop(time_shift_stack);
+        ny = ds_stack_pop(time_shift_stack);
+        nh = ds_stack_pop(time_shift_stack);
+        if(nh &gt; t_health) t_health = nh;
+        global.playerPositionX = nx;
+        global.playerPositionY = ny;
+    }
+    else
+    {
+        current_tick += global.delta;
+    }
 }
 else
 {

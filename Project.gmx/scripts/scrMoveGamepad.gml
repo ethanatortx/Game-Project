@@ -30,5 +30,8 @@ else if (circleCheckFloat >= 0) {
 var relativeSpeed; // speed at angle
 relativeSpeed = sqrt(sqr(newHorizontalSpd) + sqr(newVerticalSpd));
 
-direction = angle; // set angle to angle of joystick
-speed = relativeSpeed; // set speed to hypotenuse of joystick angle and both axes
+var xchange, ychange;
+xchange = dcos(angle)*relativeSpeed*sign(haxis);
+ychange = dsin(angle)*relativeSpeed*sign(yaxis);
+
+scrIncrementGlobalPlayerPos(xchange, ychange);
