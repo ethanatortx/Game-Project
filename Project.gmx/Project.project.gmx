@@ -44,6 +44,10 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="time/space tele">
+      <script>scripts\scrUpdateTimeStack.gml</script>
+      <script>scripts\scrTrimTimeStack.gml</script>
+    </scripts>
     <scripts name="configs">
       <script>scripts\cfg_defaultbinds.gml</script>
     </scripts>
@@ -74,7 +78,6 @@
     <script>scripts\scrPointInPolygon.gml</script>
     <script>scripts\scrCorrectAngle.gml</script>
     <script>scripts\scrPredictCourse.gml</script>
-    <script>scripts\script20.gml</script>
     <script>scripts\scrAttackSwing.gml</script>
   </scripts>
   <shaders name="shaders">
@@ -86,16 +89,11 @@
   </fonts>
   <objects name="objects">
     <object>objects\damage_parent</object>
-    <objects name="inanimate objects">
-      <object>objects\obj_deadTree</object>
-    </objects>
+    <object>objects\time_control_parent</object>
+    <object>objects\delta_control</object>
     <objects name="player">
-      <object>objects\objPlayerMain</object>
+      <object>objects\obj_player_main</object>
       <object>objects\player_parent</object>
-    </objects>
-    <objects name="shaders">
-      <object>objects\obj_blackwhite</object>
-      <object>objects\obj_darken</object>
     </objects>
     <objects name="effects">
       <object>objects\fx_smoke</object>
@@ -103,8 +101,8 @@
     <objects name="mechanics">
       <object>objects\obj_quitgame</object>
       <object>objects\obj_message</object>
+      <object>objects\obj_time_shift_control</object>
     </objects>
-    <object>objects\delta_control</object>
     <objects name="damage objects">
       <object>objects\obj_beamProjectileGenerated</object>
       <object>objects\obj_ballProjectileGenerated</object>
@@ -115,23 +113,21 @@
       <object>objects\obj_enemyDetectionCirlce</object>
     </objects>
     <objects name="enemies">
-      <object>objects\obj_lowThreatEnemy</object>
+      <object>objects\obj_low_threat_enemy</object>
+    </objects>
+    <objects name="inanimate objects">
+      <object>objects\obj_deadTree</object>
     </objects>
     <objects name="physics objects">
       <object>objects\obj_rockPhysics</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rm_initial</room>
     <room>rooms\rm_testPhysicsObjects</room>
     <room>rooms\rm_testing</room>
     <room>rooms\rm_environ2</room>
-    <room>rooms\rm_testing_environments</room>
-<<<<<<< HEAD
-    <room>rooms\MainEvironment</room>
-    <room>rooms\room1</room>
-=======
->>>>>>> 974d379245830e01f3de7a44a287c1457b8fee12
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

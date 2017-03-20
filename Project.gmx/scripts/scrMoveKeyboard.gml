@@ -89,7 +89,14 @@ if (haxis == 1 && vaxis == 1) { // down and right diagonal
     relativeSpd = sqrt(sqr(hspd) + sqr(vspd));
     angle = 315;
 }
-
+if (relativeSpd > 0)
+{
+    global.playerState = 2;
+}
+else
+{
+    global.playerState = 1;
+}
 direction = angle;
 speed = relativeSpd;
 sprite_index = spr;

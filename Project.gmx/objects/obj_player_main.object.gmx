@@ -27,11 +27,18 @@
             <kind>1</kind>
             <string>/// initialize values
 global.playerSpeed = scrDeltaApply(2, true);
-global.playerState = 'move';
+// player state guide:
+//      0: frozen
+//      1: able to move
+//      2: moving
+global.playerState = 1;
 global.playerHealth = 100;
 
 global.moveModX = 1;
 global.moveModY = 1;
+
+global.playerPositionX = 0;
+global.playerPositionY = 0;
 
 global.walkSpeedMod = 0.6;
 
@@ -70,6 +77,31 @@ global.playerSprArr[3] = spr_main_right;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// update global player position
+global.playerPositionX = x;
+global.playerPositionY = y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -90,7 +122,7 @@ global.playerSprArr[3] = spr_main_right;
             <string>/// movement
 
 // only allow walking if specified
-if (global.playerState = 'move') {
+if (global.playerState &gt;= 1) {
     event_user(0);
 }
 
@@ -171,8 +203,10 @@ if (gpinput) {
 
     // check if controller input exists:
     if (haxis != 0 or vaxis != 0) {
+        global.playerState = 2;
         scrMoveGamepad(hspd,vspd,haxis,vaxis,walkThreshold);
     } else {
+        global.playerState = 1;
         direction = 0;
         speed = 0;
         angle = 0;
@@ -213,6 +247,28 @@ if (gpinput) {
             <string>/// create game quit object &lt;TESTING ONLY&gt;
 instance_create(0,0,obj_quitgame);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

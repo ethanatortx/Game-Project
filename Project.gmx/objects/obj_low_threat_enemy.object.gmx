@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -34,7 +34,6 @@ detDelay = 20;
 attackRadius = 50;
 attackDelay = 5;
 
-
 // modifiables
 detCounter = detDelay;
 attackCounter = attackDelay;
@@ -56,9 +55,8 @@ angleSnapshot = 0;
 within = false;
 list = 0;
 
-// calibrate variables for detecting player and attacking them
-playerX = objPlayerMain.x;
-playerY = objPlayerMain.y;
+playerX = global.playerPositionX;
+playerY = global.playerPositionY;
 
 var xDif = playerX-x;
 var yDif = playerY-y;
@@ -135,8 +133,8 @@ if (!activated) {
             <string>/// update vector to player
 
 // update player poisition
-playerX = objPlayerMain.x;
-playerY = objPlayerMain.y;
+playerX = global.playerPositionX;
+playerY = global.playerPositionY;
 
 var xDif = playerX-x;
 var yDif = playerY-y;
