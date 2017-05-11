@@ -28,7 +28,7 @@
             <string>/// initialize globals and instance vars
 
 // The stack for backwards time skipping is set up like this:
-//      ... { player x pos, player y pos, player health } ...
+//      ... { player health, player y pos, player x pos } ...
 // Data is pushed in ordered sets of three.
 // When the skip is called, the player is pulled through the
 //      moments in reverse order.
@@ -38,7 +38,7 @@
 // for now Im going to set frequency low and duration
 // high for testing
 time_shift_duration = 3;
-snapshot_frequency = 15;
+snapshot_frequency = room_speed;
 
 // quantity of snapshots (precision of recall)
 snapshot_count = time_shift_duration * snapshot_frequency;
@@ -226,7 +226,8 @@ else
 {
     is_active = false;
     global.playerHealth = t_health;
-    instance_destroy();
+    ds_stack_destroy(time_shift_stack);
+    time_shift_stack = ds_stack_create();
 }
 </string>
           </argument>

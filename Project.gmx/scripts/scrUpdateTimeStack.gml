@@ -18,4 +18,4 @@ while(stack_len >= (max_index))
     stack_len = ds_stack_size(stackid);
 }
 
-ds_stack_push(stackid, px, py, ph);
+ds_stack_push(stackid, ph, py, px);

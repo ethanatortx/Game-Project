@@ -7,7 +7,7 @@ var hspd = argument0;
 var vspd = argument1;
 var keyList = argument2; // which keys to check for input
 
-var spr;
+var spr = global.playerSprArr[0];
 
 var lkey = keyboard_check(keyList[0]);
 var rkey = keyboard_check(keyList[1]);
@@ -76,8 +76,10 @@ if(haxis != 0 || vaxis != 0)
     {
         spr = global.playerSprArr[2];
     }
+    // up and left -- left
     if(haxis == -1 && vaxis == -1)
     {
+        spr = global.playerSprArr[2];
     }
 }
 

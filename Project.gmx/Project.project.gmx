@@ -123,6 +123,7 @@
     <objects name="physics objects">
       <object>objects\obj_rockPhysics</object>
     </objects>
+    <object>objects\obj_test_sprites</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initial</room>
